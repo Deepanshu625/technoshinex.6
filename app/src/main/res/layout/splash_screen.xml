@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/splash_back"
+    >
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/bubble4"
+        android:id="@+id/splash_image"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TECHNOSHINE X.6"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="2dp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:shadowColor="#000000"
+        android:shadowRadius="2"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:textColor="#f5a817"
+        android:id="@+id/splash_text"
+        />
+
+</RelativeLayout>
