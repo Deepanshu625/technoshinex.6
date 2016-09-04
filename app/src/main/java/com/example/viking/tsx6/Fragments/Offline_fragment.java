@@ -31,12 +31,15 @@ import com.github.florent37.materialviewpager.adapter.RecyclerViewMaterialAdapte
 public class Offline_fragment extends android.support.v4.app.Fragment {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
-    int[] myImageList = new int[]{R.drawable.tattoo, R.drawable.brain, R.drawable.counter,
-            R.drawable.treasure, R.drawable.gg, R.drawable.poy, R.drawable.sc, R.drawable.t, R.drawable.tc};
-    int[] eventname = new int[]{R.string.tattoo,R.string.bm,R.string.cs,R.string.th,R.string.gg,R.string.p,R.string.sc,R.string.tri,R.string.tc};
+    int[] myImageList = new int[]{R.drawable.tattoo_icon, R.drawable.brain_icon, R.drawable.cs_icon,
+            R.drawable.treasure_icon, R.drawable.gadget_icon, R.drawable.poy_icon, R.drawable.tric_icon, R.drawable.total_icon};
+    int[] eventname = new int[]{R.string.tattoo,R.string.bm,R.string.cs,R.string.th,R.string.gg,R.string.p,R.string.tri,R.string.tc};
 
-    int[] myTitleList = new int[]{R.string.Tatto,R.string.brain,R.string.couter,R.string.treasure,R.string.gadget,R.string.poy,R.string.socket,R.string.tricology,R.string.total};
+    int[] myTitleList = new int[]{R.string.Tatto,R.string.brain,R.string.couter,R.string.treasure,R.string.gadget,R.string.poy,R.string.tricology,R.string.total};
 
+    int[] tagline = new int[]{R.string.tattoo_tagline,R.string.brain_tagline,R.string.counter_tagline,R.string.treasure_tagline,R.string.gadget_tagline,R.string.poy_tagline,R.string.trico_tagline,R.string.total_tagline};
+    int[] poster = new int[]{R.drawable.tattoo, R.drawable.brain, R.drawable.counter,
+            R.drawable.treasure, R.drawable.gg, R.drawable.poy, R.drawable.t, R.drawable.tc};
     public static Offline_fragment newInstance() {
         return new Offline_fragment();
     }
@@ -52,7 +55,7 @@ public class Offline_fragment extends android.support.v4.app.Fragment {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(layoutManager);
         mRecyclerView.setHasFixedSize(true);
-        mAdapter = new RecyclerViewMaterialAdapter(new Offline_Adapter(myImageList,eventname,eventname,myTitleList));
+        mAdapter = new RecyclerViewMaterialAdapter(new Offline_Adapter(myImageList,eventname,tagline,myTitleList,poster));
         //mAdapter = new RecyclerViewMaterialAdapter(new Offline_Adapter(myImageList),2);
         mRecyclerView.setAdapter(mAdapter);
         MaterialViewPagerHelper.registerRecyclerView(getActivity(), mRecyclerView);

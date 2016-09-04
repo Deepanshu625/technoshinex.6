@@ -33,10 +33,12 @@ public class Online_fragment extends android.support.v4.app.Fragment {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
 
-    int[] myImageList = new int[]{R.drawable.justclick, R.drawable.codezip, R.drawable.net, R.drawable.inspire, R.drawable.code_war};
-    int[] eventname = new int[]{R.string.just,R.string.cz,R.string.net,R.string.inspire,R.string.cw};
-    int[] myTitleList = new int[]{R.string.Just_click,R.string.Code_zip,R.string.net_hunt,R.string.Inspire_India,R.string.code_war};
-
+    int[] myImageList = new int[]{R.drawable.click_icon, R.drawable.binoculars, R.drawable.inspire_icon, R.drawable.code_icon};
+    int[] eventname = new int[]{R.string.just,R.string.net,R.string.inspire,R.string.cw};
+    int[] myTitleList = new int[]{R.string.Just_click,R.string.net_hunt,R.string.Inspire_India,R.string.code_war};
+    int[] tagline = new int[]{R.string.just_tagline,R.string.net_tagline,R.string.inspire_tagline,R.string.code_tagline};
+    int[] poster = new int[]{R.drawable.justclick,R.drawable.net,R.drawable.inspire,R.drawable.code_war};
+    int[] back_color = new int[] {R.color.just,R.color.net,R.color.inspire,R.color.code};
     public static Online_fragment newInstance() {
         return new Online_fragment();
     }
@@ -52,8 +54,8 @@ public class Online_fragment extends android.support.v4.app.Fragment {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(layoutManager);
         mRecyclerView.setHasFixedSize(true);
-        mAdapter = new RecyclerViewMaterialAdapter(new Online_Adapter(myImageList,eventname,eventname,myTitleList));
-//        mAdapter = new RecyclerViewMaterialAdapter(new Online_Adapter(myImageList),2);
+        mAdapter = new RecyclerViewMaterialAdapter(new Online_Adapter(myImageList,eventname,tagline,myTitleList,poster,back_color));
+      //mAdapter = new RecyclerViewMaterialAdapter(new Online_Adapter(myImageList,eventname,tagline,myTitleList),2);
         mRecyclerView.setAdapter(mAdapter);
         MaterialViewPagerHelper.registerRecyclerView(getActivity(), mRecyclerView);
 

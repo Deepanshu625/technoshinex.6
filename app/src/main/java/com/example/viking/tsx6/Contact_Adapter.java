@@ -6,18 +6,24 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 /**
  * Created by viking on 21/7/16.
  */
 public class Contact_Adapter extends
-        RecyclerView.Adapter<Contact_Adapter.ViewHolder> {
+        RecyclerView.Adapter<Contact_Adapter.ViewHolder>
+{
+
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public ImageView imageView;
         //  public TextView textView;
 
+
+
         public ViewHolder(View itmView) {
             super(itmView);
+
 
         }
 
@@ -33,7 +39,7 @@ public class Contact_Adapter extends
         LayoutInflater inflater = LayoutInflater.from(context);
 
         // Inflate the custom layout
-        View contactView = inflater.inflate(R.layout.contact, parent, false);
+        View contactView = inflater.inflate(R.layout.cardview_contact, parent, false);
 
         // Return a new holder instance
         ViewHolder viewHolder = new ViewHolder(contactView);

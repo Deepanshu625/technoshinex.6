@@ -1,9 +1,13 @@
 package com.example.viking.tsx6;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.renderscript.Allocation;
@@ -11,7 +15,6 @@ import android.renderscript.Element;
 import android.renderscript.RenderScript;
 import android.renderscript.ScriptIntrinsicBlur;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.content.ContextCompat;
@@ -19,50 +22,49 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.astuetz.PagerSlidingTabStrip;
 import com.example.viking.tsx6.Fragments.About_Fragment;
 import com.example.viking.tsx6.Fragments.Contact_us_fragment;
+import com.example.viking.tsx6.Fragments.Nethunt_Fragment;
 import com.example.viking.tsx6.Fragments.Offline_fragment;
 import com.example.viking.tsx6.Fragments.Online_fragment;
 import com.example.viking.tsx6.Fragments.Sponsors;
-import com.example.viking.tsx6.Fragments.config;
+import com.example.viking.tsx6.Fragments.login;
+import com.example.viking.tsx6.Fragments.register;
 import com.github.florent37.materialviewpager.MaterialViewPager;
 import com.github.florent37.materialviewpager.header.HeaderDesign;
-import com.google.android.youtube.player.YouTubeInitializationResult;
-import com.google.android.youtube.player.YouTubePlayer;
-import com.google.android.youtube.player.YouTubePlayerView;
 
-public class MainActivity extends AppCompatActivity  {
+public class MainActivity extends AppCompatActivity {
+
 
     private MaterialViewPager mViewPager;
     private RecyclerView recyclerView;
     private Toolbar toolbar;
     private static Context context;
+    private EditText user, pass;
+    public static String Username, Password, email;
+    public static TextView username_textview;
+    Dialog dialog;
     public String id = "v=_yXcoACi0kE";
+    public static Typeface typeface, typeface_1, typeface_2, typeface_3;
+    public static SharedPreferences sharedPreferences;
 
 
     FloatingActionButton fab;
-    FloatingActionButton fab1;
-    FloatingActionButton fab2;
-    FloatingActionButton fab3;
-    Animation show_fab_1;
-    Animation hide_fab_1;
-    Animation show_fab_2;
-    Animation hide_fab_2;
-    Animation show_fab_3;
-    Animation hide_fab_3;
-    private boolean FAB_Status = false;
-
+    Boolean check_login;
+    String sharedprefrences_username;
+    SharedPreferences.Editor ed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +73,29 @@ public class MainActivity extends AppCompatActivity  {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         setTitle("");
-        context=this.getApplicationContext();
+        context = this.getApplicationContext();
+
+        //applying fonts
+        typeface = Typeface.createFromAsset(getAssets(), "fonts/Bangers.ttf");
+        typeface_1 = Typeface.createFromAsset(getAssets(), "fonts/ChallengeContour.ttf");
+        typeface_2 = Typeface.createFromAsset(getAssets(), "fonts/PlayfairDisplay.ttf");
+        typeface_3 = Typeface.createFromAsset(getAssets(), "fonts/Montserrat-Regular.ttf");
+
+        username_textview = (TextView) findViewById(R.id.username);
+        username_textview.setTypeface(typeface_2);
+
+        sharedPreferences = getSharedPreferences("Login", MODE_PRIVATE);
+        check_login = sharedPreferences.getBoolean("key1", false);
+        sharedprefrences_username = sharedPreferences.getString("Username", "");
+        if (check_login) {
+            username_textview.setText("Hello, " + sharedprefrences_username);
+        } else {
+            username_textview.setText("");
+        }
+
+
+        TextView tv = (TextView) findViewById(R.id.logo_white);
+        tv.setTypeface(typeface);
 
         mViewPager = (MaterialViewPager) findViewById(R.id.materialViewPager);
         toolbar = mViewPager.getToolbar();
@@ -92,7 +116,7 @@ public class MainActivity extends AppCompatActivity  {
 
             @Override
             public Fragment getItem(int position) {
-                switch (position % 5) {
+                switch (position % 6) {
                     case 0:
                         return About_Fragment.newInstance();
                     case 1:
@@ -103,6 +127,8 @@ public class MainActivity extends AppCompatActivity  {
                         return Sponsors.newInstance();
                     case 4:
                         return Contact_us_fragment.newInstance();
+                    case 5:
+                        return Nethunt_Fragment.newInstance();
                     default:
                         return Offline_fragment.newInstance();
                 }
@@ -112,7 +138,7 @@ public class MainActivity extends AppCompatActivity  {
             @Override
             public int getCount() {
 
-                return 5;
+                return 6;
             }
 
             @Override
@@ -128,6 +154,8 @@ public class MainActivity extends AppCompatActivity  {
                         return "SPONSORS";
                     case 4:
                         return "CONTACT US";
+                    case 5:
+                        return "NET HUNT";
 
                 }
                 return "";
@@ -136,27 +164,31 @@ public class MainActivity extends AppCompatActivity  {
         mViewPager.setMaterialViewPagerListener(new MaterialViewPager.Listener() {
             @Override
             public HeaderDesign getHeaderDesign(int page) {
-                switch (page) {
-                    case 0:
+//                switch (page) {
+//                    case 0:
+//
+//                        return HeaderDesign.fromColorAndDrawable(
+//                                Color.parseColor("#FF5722"),ContextCompat.getDrawable(getApplicationContext(), R.drawable.colarge));
+//                    case 1:
+//                        return HeaderDesign.fromColorAndDrawable(
+//                                Color.parseColor("#FF5722"), ContextCompat.getDrawable(getApplicationContext(), R.drawable.colarge));
+//                    case 2:
+//                        return HeaderDesign.fromColorAndDrawable(
+//                                Color.parseColor("#FF5722"), ContextCompat.getDrawable(getApplicationContext(), R.drawable.colarge));
+//                    case 3:
+//                        return HeaderDesign.fromColorAndDrawable(
+//                                Color.parseColor("#FF5722"), ContextCompat.getDrawable(getApplicationContext(), R.drawable.splash_back));
+//                    case 4:
+//                        return HeaderDesign.fromColorAndDrawable(
+//                                Color.parseColor("#FF5722"), ContextCompat.getDrawable(getApplicationContext(), R.drawable.splash_back));
+//                    case 5:
+//                        return HeaderDesign.fromColorAndDrawable(
+//                                Color.parseColor("#FF5722"), ContextCompat.getDrawable(getApplicationContext(), R.drawable.splash_back));
 
-                        return HeaderDesign.fromColorAndDrawable(
-                                Color.parseColor("#F44336"), ContextCompat.getDrawable(getApplicationContext(), R.drawable.purplepink));
-                    case 1:
-                        return HeaderDesign.fromColorAndDrawable(
-                                Color.parseColor("#F44336"), ContextCompat.getDrawable(getApplicationContext(), R.drawable.redpurple));
-                    case 2:
-                        return HeaderDesign.fromColorAndDrawable(
-                                Color.parseColor("#F44336"), ContextCompat.getDrawable(getApplicationContext(), R.drawable.cyandroid));
-                    case 3:
-                        return HeaderDesign.fromColorAndDrawable(
-                                Color.parseColor("#F44336"), ContextCompat.getDrawable(getApplicationContext(), R.drawable.amethyst));
-                    case 4:
-                        return HeaderDesign.fromColorAndDrawable(
-                                Color.parseColor("#F44336"), ContextCompat.getDrawable(getApplicationContext(), R.drawable.cyandroid));
+//                }
 
-                }
-
-                return null;
+                return HeaderDesign.fromColorAndDrawable(
+                        Color.parseColor("#FF5722"), ContextCompat.getDrawable(getApplicationContext(), R.drawable.colarge));
             }
         });
 
@@ -167,55 +199,35 @@ public class MainActivity extends AppCompatActivity  {
 
         //Floating Action Buttons
         fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab1 = (FloatingActionButton) findViewById(R.id.fab_1);
-        fab2 = (FloatingActionButton) findViewById(R.id.fab_2);
-        fab3 = (FloatingActionButton) findViewById(R.id.fab_3);
-
-        //Animations
-        show_fab_1 = AnimationUtils.loadAnimation(getApplication(), R.anim.fab1_show);
-        hide_fab_1 = AnimationUtils.loadAnimation(getApplication(), R.anim.fab1_hide);
-        show_fab_2 = AnimationUtils.loadAnimation(getApplication(), R.anim.fab2_show);
-        hide_fab_2 = AnimationUtils.loadAnimation(getApplication(), R.anim.fab2_hide);
-        show_fab_3 = AnimationUtils.loadAnimation(getApplication(), R.anim.fab3_show);
-        hide_fab_3 = AnimationUtils.loadAnimation(getApplication(), R.anim.fab3_hide);
 
         //for floating action button...
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setBackgroundTintList(ColorStateList.valueOf(Color
+                .parseColor("#03A9F4")));
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (FAB_Status == false) {
-                    //Display FAB menu
-                    expandFAB();
-                    FAB_Status = true;
-                } else {
-                    //Close FAB menu
-                    hideFAB();
-                    FAB_Status = false;
+                check_login = sharedPreferences.getBoolean("key1", false);
+                if (check_login) {
+                    dialog = new Dialog(MainActivity.this);
+                    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                    dialog.setContentView(R.layout.logout);
+                    dialog.show();
+
                 }
+                //for login
+                else {
 
-            }
-        });
-        fab1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getApplication(), "Floating Action Button 1", Toast.LENGTH_SHORT).show();
-            }
-        });
+                    Toast.makeText(getApplication(), "Let's login first", Toast.LENGTH_SHORT).show();
+                    dialog = new Dialog(MainActivity.this);
+                    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                    dialog.setContentView(R.layout.for_new_floating);
+                    dialog.show();
 
-        fab2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getApplication(), "Floating Action Button 2", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
-        fab3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getApplication(), "Floating Action Button 3", Toast.LENGTH_SHORT).show();
-            }
-        });
 
     }
 
@@ -234,87 +246,120 @@ public class MainActivity extends AppCompatActivity  {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+//        if (id == R.id.action_settings) {
+//            return true;
+//        }
 
         return super.onOptionsItemSelected(item);
     }
 
-    public void chrome(View view)
-    {
+    public void chrome(View view) {
         startActivity(new Intent(Intent.ACTION_VIEW).setData(Uri.parse("www.cadnitd.co.in")));
     }
-    public void mail(View view)
-    {
+
+    public void mail(View view) {
         Intent emailIntent = new Intent(Intent.ACTION_SEND);
         emailIntent.setType("technoshine.ca@gmail.com");
         startActivity(emailIntent);
     }
-    public void youtube(View view)
-    {
+
+    public void youtube(View view) {
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/watch?v=_yXcoACi0kE"));
         startActivity(intent);
     }
 
+    public void register_button(View view) {
+        register register = new register();
+        register.newInstance(dialog, MainActivity.this);
+        //dialog.dismiss();
+
+    }
+
+    public void login_button(View view) {
+        user = (EditText) dialog.findViewById(R.id.editText_username);
+        pass = (EditText) dialog.findViewById(R.id.editText_password);
+        email = user.getText().toString();
+        Password = pass.getText().toString();
+        //dialog.dismiss();
+        login login = new login();
+        login.newInstance(email, Password, context, dialog);
+    }
+
+    public static void getUsername(String username) {
+        Username = username;
+
+        if (Username == null) {
+            Toast.makeText(MainActivity.context, "Wrong username or password", Toast.LENGTH_SHORT).show();
+        } else {
+            //username_textview.setVisibility(View.VISIBLE);
+            username_textview.setText("Hello, " + Username);
+            SharedPreferences.Editor ed = sharedPreferences.edit();
+            ed.putBoolean("key1", true);
+            ed.putString("Username", Username);
+            ed.commit();
+            Toast.makeText(MainActivity.context, "Succecessfully logged in as " + Username, Toast.LENGTH_SHORT).show();
 
 
-    //Show floating Menu Button
-    private void expandFAB() {
+        }
+    }
 
-        //Floating Action Button 1
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) fab1.getLayoutParams();
-        layoutParams.rightMargin += (int) (fab1.getWidth() * 2.0);
-        layoutParams.bottomMargin += (int) (fab1.getHeight() * 0.15);
-        fab1.setLayoutParams(layoutParams);
-        fab1.startAnimation(show_fab_1);
-        fab1.setClickable(true);
+    public void login_dialog(View view) {
+        dialog.dismiss();
+        Toast.makeText(getApplication(), "Let's login first", Toast.LENGTH_SHORT).show();
+        dialog = new Dialog(MainActivity.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.log_in);
+        //dialog.setTitle("log In");
+        dialog.show();
 
-        //Floating Action Button 2
-        FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) fab2.getLayoutParams();
-        layoutParams2.rightMargin += (int) (fab2.getWidth() * 1.8);
-        layoutParams2.bottomMargin += (int) (fab2.getHeight() * 1.6);
-        fab2.setLayoutParams(layoutParams2);
-        fab2.startAnimation(show_fab_2);
-        fab2.setClickable(true);
 
-        //Floating Action Button 3
-        FrameLayout.LayoutParams layoutParams3 = (FrameLayout.LayoutParams) fab3.getLayoutParams();
-        layoutParams3.rightMargin += (int) (fab3.getWidth() * 0.25);
-        layoutParams3.bottomMargin += (int) (fab3.getHeight() * 2.0);
-        fab3.setLayoutParams(layoutParams3);
-        fab3.startAnimation(show_fab_3);
-        fab3.setClickable(true);
+    }
+
+    public void logout(View view) {
+
+        Username = null;
+        Toast.makeText(getApplication(), "Successfully, Logged out", Toast.LENGTH_SHORT).show();
+        username_textview.setText("");
+        ed = sharedPreferences.edit();
+        ed.putBoolean("key1", false);
+        ed.putString("Username", "");
+        ed.commit();
+        dialog.dismiss();
+
+    }
+
+    public void cancel(View view) {
+        dialog.dismiss();
+    }
+
+    public void register_dialog(View view) {
+        dialog.dismiss();
+        Toast.makeText(getApplication(), "Not registered, Register yourself", Toast.LENGTH_SHORT).show();
+        dialog = new Dialog(MainActivity.this, R.style.DialogAnimation);
+        dialog.setContentView(R.layout.register);
+        // dialog.getWindow().setFormat(PixelFormat.TRANSLUCENT);
+        dialog.setTitle("register");
+        dialog.show();
+
+    }
+
+    public void start_nethunt(View view) {
+        System.out.println("username" + Username);
+        if (Username == null) {
+            Toast.makeText(getApplication(), "u have to login first, from there ==>", Toast.LENGTH_SHORT).show();
+        } else {
+            Intent intent = new Intent(this, Net_hunt.class);
+            startActivity(intent);
+            intent.putExtra("username", Username);
+        }
+
+    }
+
+    public void backspace(View view) {
+        dialog.dismiss();
     }
 
 
-    //Hide floating Menu Button
-    private void hideFAB() {
-
-        //Floating Action Button 1
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) fab1.getLayoutParams();
-        layoutParams.rightMargin -= (int) (fab1.getWidth() * 2.0);
-        layoutParams.bottomMargin -= (int) (fab1.getHeight() * 0.15);
-        fab1.setLayoutParams(layoutParams);
-        fab1.startAnimation(hide_fab_1);
-        fab1.setClickable(false);
-
-        //Floating Action Button 2
-        FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) fab2.getLayoutParams();
-        layoutParams2.rightMargin -= (int) (fab2.getWidth() * 1.8);
-        layoutParams2.bottomMargin -= (int) (fab2.getHeight() * 1.6);
-        fab2.setLayoutParams(layoutParams2);
-        fab2.startAnimation(hide_fab_2);
-        fab2.setClickable(false);
-
-        //Floating Action Button 3
-        FrameLayout.LayoutParams layoutParams3 = (FrameLayout.LayoutParams) fab3.getLayoutParams();
-        layoutParams3.rightMargin -= (int) (fab3.getWidth() * 0.25);
-        layoutParams3.bottomMargin -= (int) (fab3.getHeight() * 2.0);
-        fab3.setLayoutParams(layoutParams3);
-        fab3.startAnimation(hide_fab_3);
-        fab3.setClickable(false);
-    }
     @SuppressWarnings("NewApi")
     public static Bitmap blurRenderScript(Bitmap smallBitmap, int radius) {
 

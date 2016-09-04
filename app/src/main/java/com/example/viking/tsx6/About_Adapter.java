@@ -5,12 +5,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.viking.tsx6.Fragments.About_Fragment;
-import com.example.viking.tsx6.Fragments.config;
-import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
 
 /**
@@ -25,7 +21,9 @@ public class About_Adapter extends
         public ViewHolder(View itmView) {
             super(itmView);
             //youTubePlayerView = (YouTubePlayerView) itemView.findViewById(R.id.youtube_view);
-            //youTubePlayerView.initialize(config.DEVELOPER_KEY,this);
+            //youTubePlayerView.initialize(Config.DEVELOPER_KEY,this);
+            textView=(TextView)itemView.findViewById(R.id.about);
+
         }
 
     }
@@ -39,6 +37,7 @@ public class About_Adapter extends
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
+
         // Inflate the custom layout
         View contactView = inflater.inflate(R.layout.about, parent, false);
 
@@ -49,6 +48,10 @@ public class About_Adapter extends
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
+        TextView textView = holder.textView;
+        textView.setTypeface(Splash_screen.typeface_3);
+
+
     }
 
 

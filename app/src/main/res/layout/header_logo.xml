@@ -4,5 +4,5 @@
     android:layout_width="wrap_content"
     android:layout_height="100dp"
     android:text="TECHNOSHINE X.6"
-    android:textSize="30sp"
+    android:textSize="45dp"
     android:textColor="@android:color/white"/>

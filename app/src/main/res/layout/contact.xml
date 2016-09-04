@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    android:layout_marginTop="100dp"
+    android:layout_marginTop="0dp"
     android:layout_marginLeft="40dp"
     >
 
@@ -18,6 +18,7 @@
                 android:layout_width="25dp"
                 android:src="@drawable/internet"/>
         <TextView
+            android:id="@+id/web"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
@@ -41,6 +42,7 @@
                 android:layout_width="25dp"
                 android:src="@drawable/mail"/>
             <TextView
+                android:id="@+id/mail"
                 android:textColorLink="@color/colorPrimaryDark"
                 android:layout_width="wrap_content"
                 android:drawablePadding="5dp"
@@ -63,6 +65,7 @@
                 android:layout_width="25dp"
                 android:src="@drawable/twitter"/>
             <TextView
+                android:id="@+id/twitter"
                 android:textColorLink="@color/colorPrimaryDark"
                 android:layout_width="wrap_content"
                 android:drawablePadding="5dp"
@@ -85,13 +88,13 @@
             android:layout_width="25dp"
             android:src="@drawable/fb"/>
         <TextView
+            android:id="@+id/fb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:autoLink="all"
             android:clickable="true"
-            android:onClick="chrome"
-            android:gravity="center"
+            android:gravity="left"
             android:layout_marginLeft="15dp"
             android:text="facebook.com/technoshinex.6"
             android:drawablePadding="10dp"
@@ -107,6 +110,7 @@
                 android:layout_width="25dp"
                 android:src="@drawable/call"/>
             <TextView
+                android:id="@+id/cnt"
                 android:textColorLink="@color/colorPrimaryDark"
                 android:layout_width="wrap_content"
                 android:drawablePadding="5dp"
@@ -128,6 +132,7 @@
                 android:layout_width="25dp"
                 android:src="@drawable/you"/>
             <TextView
+                android:id="@+id/ytube"
                 android:textColorLink="@color/colorPrimaryDark"
                 android:layout_width="wrap_content"
                 android:drawablePadding="5dp"

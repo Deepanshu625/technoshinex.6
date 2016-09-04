@@ -2,6 +2,7 @@ package com.example.viking.tsx6.Fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -20,7 +21,7 @@ import com.github.florent37.materialviewpager.adapter.RecyclerViewMaterialAdapte
 public class Sponsors extends android.support.v4.app.Fragment {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
-    int[] myImageList = new int[]{R.drawable.hackerrank, R.drawable.code, R.drawable.dominos, R.drawable.pantaloons, R.drawable.studio,R.drawable.vatika};
+    int[] myImageList = new int[]{R.drawable.hackerrank_default_og, R.drawable.codechef_logo, R.drawable.dominos_logo, R.drawable.pantaloon, R.drawable.studio,R.drawable.vatika};
 
     public static Sponsors newInstance() {
         return new Sponsors();
@@ -33,9 +34,11 @@ public class Sponsors extends android.support.v4.app.Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
+        //GridLayoutManager gridLayoutManager=new GridLayoutManager(getContext(),3);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(layoutManager);
         mRecyclerView.setHasFixedSize(true);
+        //mAdapter = new RecyclerViewMaterialAdapter(new Sponsors_Adapter(myImageList));
         mAdapter = new RecyclerViewMaterialAdapter(new Sponsors_Adapter(myImageList));
         mRecyclerView.setAdapter(mAdapter);
         MaterialViewPagerHelper.registerRecyclerView(getActivity(), mRecyclerView);

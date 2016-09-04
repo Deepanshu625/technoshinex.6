@@ -1,9 +1,15 @@
 package com.example.viking.tsx6;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -19,13 +25,24 @@ public class Splash_screen extends Activity implements Animation.AnimationListen
     private static int SPLASH_TIME_OUT = 2000;
     Animation animation,ani;
     TextView textView;
+    ImageView imageView_text;
+    Context context;
+    public static Typeface typeface,typeface_1,typeface_2,typeface_3;
     int flag=1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_screen);
-        textView = (TextView) findViewById(R.id.splash_text);
+
+        typeface=Typeface.createFromAsset(getAssets(),"fonts/Bangers.ttf");
+        typeface_1=Typeface.createFromAsset(getAssets(),"fonts/ChallengeContour.ttf");
+        typeface_2=Typeface.createFromAsset(getAssets(),"fonts/PlayfairDisplay.ttf");
+        typeface_3=Typeface.createFromAsset(getAssets(),"fonts/Montserrat-Regular.ttf");
+        //textView = (TextView)findViewById(R.id.splash_text);
+        imageView_text = (ImageView)findViewById(R.id.splash_text);
+        //textView.setTypeface(typeface);
+
         ImageView imageView = (ImageView) findViewById(R.id.splash_image);
 
         new Handler().postDelayed(new Runnable() {
@@ -55,12 +72,11 @@ public class Splash_screen extends Activity implements Animation.AnimationListen
         // Take any action after completing the animation
         if(flag==1)
         {
-            textView.startAnimation(ani);
+            //imageView_text.setImageBitmap(decodeSampledBitmap(getResources(),R.id.splash_text, 200, 100));
+            imageView_text.setVisibility(View.VISIBLE);
+            imageView_text.startAnimation(ani);
             flag=0;
         }
-
-
-
 
     }
 
@@ -75,6 +91,31 @@ public class Splash_screen extends Activity implements Animation.AnimationListen
         // TODO Auto-generated method stub
 
     }
+    public static Bitmap decodeSampledBitmap(Resources res, int resId, int reqwidth, int reqheight) {
+        final BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+        BitmapFactory.decodeResource(res, resId, options);
 
+        options.inSampleSize = calculate_image_size(options, reqwidth, reqheight);
+
+        options.inJustDecodeBounds = false;
+        return BitmapFactory.decodeResource(res, resId, options);
+    }
+
+    public static int calculate_image_size(BitmapFactory.Options options, int reqwidth, int reqheight) {
+        final int height = options.outHeight;
+        final int width = options.outWidth;
+        int inSampleSize = 1;
+
+        if (height > reqheight || width > reqwidth) {
+            final int halfHeight = height / 2;
+            final int halfWidth = width / 2;
+
+            while ((halfHeight / inSampleSize) >= reqheight && (halfWidth / inSampleSize) >= reqwidth) {
+                inSampleSize = inSampleSize * 2;
+            }
+        }
+        return inSampleSize;
+    }
 
 }

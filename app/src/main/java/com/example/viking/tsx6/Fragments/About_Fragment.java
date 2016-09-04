@@ -14,12 +14,14 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.viking.tsx6.About_Adapter;
 import com.example.viking.tsx6.Contact_Adapter;
 import com.example.viking.tsx6.MainActivity;
 import com.example.viking.tsx6.R;
+import com.example.viking.tsx6.Splash_screen;
 import com.github.florent37.materialviewpager.MaterialViewPager;
 import com.github.florent37.materialviewpager.MaterialViewPagerHelper;
 import com.github.florent37.materialviewpager.adapter.RecyclerViewMaterialAdapter;
@@ -38,6 +40,7 @@ public class About_Fragment extends Fragment  {
 
     RecyclerView mRecyclerView;
     RecyclerView.Adapter mAdapter;
+    TextView textView;
 
 
     public static About_Fragment newInstance() {
@@ -59,6 +62,9 @@ public class About_Fragment extends Fragment  {
         mAdapter = new RecyclerViewMaterialAdapter(new About_Adapter());
         mRecyclerView.setAdapter(mAdapter);
         MaterialViewPagerHelper.registerRecyclerView(getActivity(), mRecyclerView);
+       // textView = (TextView) view.findViewById(R.id.about);
+       // textView.setTypeface(Splash_screen.typeface_1);
+
     }
 
 

@@ -15,12 +15,12 @@
 
     <string name="tattoo">TATTOO MAKING</string>
     <string name="bm">BRAIN MARATHON</string>
-    <string name="cs">COUNTER</string>
+    <string name="cs">COUNTER STRIKE</string>
     <string name="th">TREASURE HUNT</string>
     <string name="gg">GADGET GURU</string>
-    <string name="p">POY</string>
-    <string name="sc">SOCKET COMBAT</string>
-    <string name="tri">TRICOLOGY</string>
+    <string name="p">Performer of the Year</string>
+    <!--<string name="sc">SOCKET COMBAT</string>-->
+    <string name="tri">TRICKOLOGY</string>
     <string name="tc">TOTAL CHAOS</string>
 
 
@@ -28,140 +28,188 @@
     <!-- About us-->
 
     <string name="about">
-        Technoshine X.6 | The TechFest of CA Dept, NIT DGP, is a melting pot of the technically inclined students from colleges all over Eastern India.
+        This is the TechFest of CA Dept, NIT DGP, is a melting pot of the technically inclined students from colleges all over Eastern India.
         The three-day fiesta consists of events spanning every possible field, ranging from coding events to challenge the hardcore coders, to providing a platform for all to showcase their hidden talents.
         There are quizzes on diverse topics, and the technical events encourage the enthusiasts to apply their theoretical knowledge in the real world. With 14 events and participation from over 20 colleges all over India,
         Technoshine leads the light of instilling a culture of science, technology and innovation among the youth of the nation.
         </string>
 
     <!--Online Events -->
-   <string name="Just_click">For participating you need to register on  www.cadnitd.co.in\n\n
+   <string name="Just_click">\n\n\t\t\t\t\t\t\tFor participating you need to register on  www.cadnitd.co.in\n\n
+                Can your facebook friends help you win a contest? Show us your popularity by attaining the maximum numbers of likes on your picture,
+                or by depicting the best thought on the theme provided. Click!! Click!! \n\n
            1.   You need to submit between 17 sept 2016 and 23 sep 2016\n\n
            2.   The Submission must be a digital photo clicked by yourself\n\n
            3.   The Submission must be entrant\'s original creation and owned one hundred percent (100%) by the entrant\n\n
            4.   The Submission should not have been submitted previously in a promotion of any kind or exhibited or displayed publicly through any means\n\n
-           5.   The Submission must demonstrate one of the following contest themes: Open, Landscape\n
-           6.   Picture will be uploaded on our facebook page www.facebook.com/technoshinex.5, you have to get likes on your picture on our facebook page as much as possible before 2nd NOV 2015\n\n
+           5.   The Submission must demonstrate one of the following contest themes: Open, Landscape\n\n
+           6.   Picture will be uploaded on our facebook page www.facebook.com/technoshinex.6, you have to get likes on your picture on our facebook page as much as possible before 22 sep 2016\n\n
            7.   You have to like Technoshine X.6 page and then your likes will be consider\n\n
            8.   Winners will be decided with weightage of 50% from number of Likes received on your photo on our FB page and weightage of 50% will be on our judges decision, respectively\n\n
    </string>
-    <string name="Code_zip"> 1. Go to Hackerrank (login) and regsiter for the contest \"CODEZIP\"\n\n
-                    2. The contest will be a 3 hour of coding. \n\n
-                    3. Participation will be Individual.\n\n
-                    4. There will be 3 questions of different difficulties optimization manner.\n\n
-                    6. winner will be selected according to the leaderboard of hackerrank.\n\n
-                    So come and zip the source code.\n\n
+
+
+    <string name="net_hunt">\n\n\t\t\t\t\t\t\tKeep Calm And Google\n\n
+                                 Is your Google-fu strong enough to win you a prize? Surf the internet and bring us the correct answer for the given question.
+                                 Only a correct answer will help you clear the levels. Aim? To reach the highest level possible!\n\n
+                                \t\t\t\t\t\t\tAwesome Cash Prizes to Win\n\n
+                                \t\t\t\t\t\t\tPlay Nethunt @ www.cadnitd.co.in \n
 
         </string>
-    <string name="net_hunt">"Keep Calm And Google\n\nAwesome Cash Prizes to Win\n\nPlay Nethunt @ www.cadnitd.co.in \n
-
-        </string>
-    <string name="Inspire_India"> 1.  Participants are supposed to register at www.cadnitd.co.in. Entries from unregistered participants will not be considered for evaluation.\n
-                    2.  Participants have to send their write-ups as .doc/.docx files to inspireindiats@gmail.com before 1st October 11 PM.\n
+    <string name="Inspire_India">\n\n\t\t\t\t\t\t\tWrite to inspire not to impress\n\n
+                    It’s time for you to inspire the folks by writing your hearts out.
+                    Show us your creativity, write something out of the box on any of the topics provided, and lead among the pack of participants.
+                    Imagine, Implement and Inspire!!\n\n
+                    1.  Participants are supposed to register at www.cadnitd.co.in. Entries from unregistered participants will not be considered for evaluation.\n\n
+                    2.  Participants have to send their write-ups as .doc/.docx files to inspireindiats@gmail.com before 23rd september 11 PM.\n\n
                     3.  Participants must choose  any one of the following:\n
-                    \tA short story based on theme- RURAL INDIAN YOUTH  (Max Word Count- 400)\n
-                    \tAn article on INDIA OF MY DREAMS (Max Word Count- 500)\n
-                    \tA poem based on the theme- “FREEDOM” AFTER 6 DECADES OF INDEPENDENCE\n
-                    \tAn article on PROUD? TO BE AN INDIAN (Max Word Count-500)\n
-                    Note: Please give apt titles for  the poem and short story \n
+                    \t\t\t\tA short story based on theme- RURAL INDIAN YOUTH  (Max Word Count- 400)\n
+                    \t\t\t\tAn article on INDIA OF MY DREAMS (Max Word Count- 500)\n
+                    \t\t\t\tA poem based on the theme- “FREEDOM” AFTER 6 DECADES OF INDEPENDENCE\n
+                    \t\t\t\tAn article on PROUD? TO BE AN INDIAN (Max Word Count-500)\n
+                    Note: Please give apt titles for  the poem and short story \n\n
                     4.  Each of the entries should be an original creation of the participant.\n
         </string>
-    <string name="code_war">
-                    1. Go to Codechef login and regsiter for the contest \"CODEWAR\"
-                    2. The contest will be a 5 hour coding marathon \n
-                    3. Participation will be Individual\n
-                    4. There will be five questions of different difficulties.\n
+    <string name="code_war">\n\n\t\t\t\t\t\t\tCode your way to Victory
+                    A coding competition not only for the geeks but also for the novice.
+                    Code, successfully compile and pass all the test-cases to retain your position at the top of the leader-board.
+                    So polish up your coding skills to win cash prizes.
+                    \n\n1. Go to Codechef login and regsiter for the contest \"CODEWAR\"\n\n
+                    2. The contest will be a 5 hour coding marathon \n\n
+                    3. Participation will be Individual\n\n
+                    4. There will be five questions of different difficulties.\n\n
                     6. winner will be selected according to the leaderboard.\n
-                    So come and win the epic battle of coding.\n
+                    \tSo come and win the epic battle of coding.\n\n
     </string>
+    <string name="just_tagline">Let your camera do the talking</string>
+    <string name="code_tagline">Code your way to Victory</string>
+    <string name="net_tagline">Keep calm and google</string>
+    <string name="inspire_tagline">Write to inspire not to impress</string>
 
     <!-- For offline events. -->
-    <string name="Tatto">
-        Come participate and bring out the artist in you.\n
+    <string name="Tatto">\n\n
+        \t\t\t\t\t\t\tCome participate and bring out the artist in you.\n\n
+                    Do you want to express your feelings by painting the face of one of your
+                    lovable friend? If yes, then this is the exact platform for you to express how you think about certain
+                    things and also your general ideas about life and everything which is encountered. So participate,
+                    emblazon your talent and win this sparkling title of tattoo maker.\n\n
                     1) We will provide you with water colors and paint brushes (2 max for every participant). But if you wish to bring your own brushes,glitter or other accessories feel free to do so. Sky is the limit.\n
                     2) The CATEGORIES are:\n
-                    \ta) Nature\n
-                    \tb) Cartoons or Anime\n
-                    \tc) Tribal\n
-                    \td) Geometric\n
-                    3) Participant will have to bring a willing accomplice upon whom they will paint.\n
-                    4) They will have to explain their creation to the judges so their tattoo should be meaningful and should belong to any one of the categories mentioned above.\n
-                    5) Time : 1hour.\n
+                    \t\t\t\t\ta) Nature\n
+                    \t\t\t\t\tb) Cartoons or Anime\n
+                    \t\t\t\t\tc) Tribal\n
+                    \t\t\t\t\td) Geometric\n\n
+                    3) Participant will have to bring a willing accomplice upon whom they will paint.\n\n
+                    4) They will have to explain their creation to the judges so their tattoo should be meaningful and should belong to any one of the categories mentioned above.\n\n
+                    5) Time : 1hour.\n\n
         </string>
-    <string name="brain">
-        ACE THE BRAIN RACE\n\n
-                    Talent hits a target no one else can hit, Genius hits a target no one else can see.So guys time to shake your brains up!!! Get the best out of yourself. As The Quiz always floats slightly above the ground!!! And only you can do it. Here you go \n
-                    Rules:\n\n
+    <string name="brain">\n\n
+        \t\t\t\t\t\t\tACE THE BRAIN RACE\n\n
+                    How well is your General knowledge? Are you aware of latest competitions
+                    and changes happening across the globe? Now the platform has come to your way to assess your
+                    awareness from all categories. This factful event provides you a great opportunity to unveil your
+                    talent, ability and skills by fighting in war of minds . Now stir yourself, spike your knowledge and
+                    run your brains to conquest this marathon of mind.\n\n
+                    Talent hits a target no one else can hit, Genius hits a target no one else can see. So guys time to shake your brains up!!! Get the best out of yourself. As The Quiz always floats slightly above the ground!!! And only you can do it. Here you go \n
+                    \t\t\tRules:\n\n
                     1) The questions for quiz are based on general knowledge, current affairs\n\n
                     2) There will be only 1 round, which is paper based.\n\n
                     3) 30 questions of 3 marks each. There will be no negative marking.\n\n
                     4) Two members in each team.\n\n
                     5) There will be strict prohibition on any source like internet for help
         </string>
-    <string name="couter">
+    <string name="couter">\n\nFire in the hole\n\n
+                    Are you interested in Gaming? Yes ?,then this is the appurtenant opportunity
+                    for you to concur in this first person shooter game. Each team attempts to complete their mission
+                    objective and/or eliminate the opposing team. So gear up guys for this amazing event, cash prizes
+                    are waiting for you.\n\n
         Round:\tOne 1 minute 45 second cycle on a map\n\n
-                    Match:\tFirst team to win 7 total rounds, or the single overtime round\n\n
-                    Overtime:\tIn the case of a 6-6 score at the end of regulation play, 3 overtime rounds will be played. The start money for each team will be set at $8,000 per player for overtime.\n\n\n
+                    Match:\t\t\tFirst team to win 7 total rounds, or the single overtime round\n\n
+                    Overtime:\t\t\tIn the case of a 6-6 score at the end of regulation play, 3 overtime rounds will be played. The start money for each team will be set at $8,000 per player for overtime.\n\n\n
                     Game Format:\n\n
                     Competition Method:\t5 vs. 5\n\n
-                    Players:\t10 total (5 on each team)\n\n
-                    Rounds:\t12 rounds for regulation play\n\n
-                    Max Rounds Format:\t6 rounds as Offense, and 6 rounds as Defense per team until the victory condition is met\n
-                    Victory Condition:\tThe first team to win 6rounds in regulation or the team that wins the overtime period.\n\n
-                    Buy time:\t15 seconds\n\n
-                    Start money:\t$800 for regulation play, $10,000 for overtime periods\n\n
-                    Freeze time:\t5 seconds\n\n
-                    C4 Timer:\t35 seconds\n\n
+                    Players:\t\t\t10 total (5 on each team)\n\n
+                    Rounds:\t\t\t12 rounds for regulation play\n\n
+                    Max Rounds Format:\t\t\t6 rounds as Offense, and 6 rounds as Defense per team until the victory condition is met\n
+                    Victory Condition:\t\t\tThe first team to win 6rounds in regulation or the team that wins the overtime period.\n\n
+                    Buy time:\t\t\t15 seconds\n\n
+                    Start money:\t\t\t$800 for regulation play, $10,000 for overtime periods\n\n
+                    Freeze time:\t\t\t5 seconds\n\n
+                    C4 Timer:\t\t\t35 seconds\n\n
                     Map Pool:\n
-                    \t\t• de_dust2, de_inferno, de_nuke, de_train\n
+                    \t\t\t\t\t• de_dust2, de_inferno, de_nuke, de_train\n
                     \n
                     Side Selection:\n
-                    \t\t• By knife round / coin toss, at admin discretion\n
-                    \t\t• At half time, teams will switch sides\n
-                    \t\t• All players names must be in the format of their team tag + gaming alias \n
+                    \t\t\t\t\t• By knife round / coin toss, at admin discretion\n
+                    \t\t\t\t\t• At half time, teams will switch sides\n
+                    \t\t\t\t\t• All players names must be in the format of their team tag + gaming alias \n
                     (i.e. TEAM | Player)\n
                     \n
                     Setup and Configuration:\n
-                    \t\t•Non-standard game settings or third party applications that affect game play are not permitted.\n
-                    \t\t•Players are restricted from opening the console.\n
+                    \t\t\t\t\t•Non-standard game settings or third party applications that affect game play are not permitted.\n
+                    \t\t\t\t\t•Players are restricted from opening the console.\n
     </string>
-    <string name="treasure">
+    <string name="treasure">\n\nNot all treasure‘s silver and gold, mate
+                            \n\nBring out the Bond in you. Solve the riddles at each stage as fast as you can, or opt for some alternative tasks.
+                            Knowledge of the campus, and shortcuts routes from one location to another can help you reach the destinations faster.
+                            Be the team covering the maximum number of destination points within the stipulated time period to be the winners!
 
         </string>
-    <string name="gadget">
-        Unleash The ‘Geekzmo’ in You…\n
+    <string name="gadget">\n\n
+                    \t\t\t\t\t\t\tUnleash The ‘Geekzmo’ in You…\n\n
+                    Are you a Gadget freak? Always google in searching latest technology
+                    advancements? If yes, then participate in this geeky event to analyse your knowledge about
+                    technology gadgets with our trivia challenge. So come, put your skills to the test in this ultimate
+                    gadget quiz and win exciting cash prizes.\n\n
                     Rules:\n
                     This events for specially for who loves the gadget’s..   The whole event based on latest Gadget ‘s.\n
-                    1.\tThere will be team of  two  members.\n
-                    2.\tWhole event completed in two round. \n
-                    3.\tThe first  round  is Paper based .. there will be 20 question based on latest gadgets . time limit  20 minutes..\n"
+                    1.\tThere will be team of  two  members.\n\n
+                    2.\tWhole event completed in two round. \n\n
+                    3.\tThe first  round  is Paper based .. there will be 20 question based on latest gadgets . time limit  20 minutes..\n\n
                     4.\tSecond round is  App based ..  consisting of 20 questions time limit 20 minutes..\n
         </string>
-    <string name="poy">
-                    1. Performances should not exceed 4 minutes.\n
-                    2. Only individual performances allowed.\n
-                    3. Performances can include acting, singing, dancing, musical instrument, poetry-recital or stand-up comedy.\n
-                    4. Selected performers from the first round will compete against others in a second round.\n
+    <string name="poy">\n\n\t\t\t\t\t\t\tCome Steal the Show\n\n
+                    Are you the born-dancer, the oh-so-perfect singer or the actor deserving a standing ovation? Then this is the perfect platform for you to showcase your talents.
+                    Come, participate and win the most memorable title of the lot: The Performer of the Year.\n\n
+                    1. Performances should not exceed 4 minutes.\n\n
+                    2. Only individual performances allowed.\n\n
+                    3. Performances can include acting, singing, dancing, musical instrument, poetry-recital or stand-up comedy.\n\n
+                    4. Selected performers from the first round will compete against others in a second round.\n\n
                     5. Performers are to bring their sound tracks, songs, props and other such requisites themseleves.
         </string>
-    <string name="socket">
-                    Crusading the Network Arena\n\nPlease visit www.cadnitd.co.in for details.
-        </string>
-    <string name="tricology">
-                    1. It is a team event, each team has 2 members.\n
-                    2. It will consist of 3 rounds ,round 1 is paper based ,selected team from round 1 goes to round 2, which is app based and shortlisted team will face the third round which is purely based on coding.\n
-                    3. Round 1 and 2 will be of 30 minutes each and consist of multiple choice question.\n
-                    4. Round 3 is the coding  round which is of 2 hours.\n
-                    5. For round 3 participants should have to bring their own laptops.\n
+    <!--<string name="socket">\n\n-->
+                    <!--\t\t\t\t\t\t\tCrusading the Network Arena\n\nPlease visit www.cadnitd.co.in for details.-->
+        <!--</string>-->
+    <string name="tricology">\n\n\t\t\t\t\t\t\tBack to basics\n\n
+                    Clear your basics in high level languages. If you are the program-freak, this will be a cake walk for you!
+                    Check the syntax, predict the outputs and answer some basic questions to earn points.\n\n
+                    1. It is a team event, each team has 2 members.\n\n
+                    2. It will consist of 3 rounds ,round 1 is paper based ,selected team from round 1 goes to round 2, which is app based and shortlisted team will face the third round which is purely based on coding.\n\n
+                    3. Round 1 and 2 will be of 30 minutes each and consist of multiple choice question.\n\n
+                    4. Round 3 is the coding  round which is of 2 hours.\n\n
+                    5. For round 3 participants should have to bring their own laptops.\n\n
     </string>
-    <string name="total">
-                    Who let The Chaos out?\n
-                    Rules:\n
-                    1.\tThere will be team of  two  members.\n
-                    2.\tWhole event completed in two round\n
-                    3.\t1st round is App based… there will be 30 question based on (Programming, GK , Logical Reasoning ,Computer tricky questions) . Time limit   30 minutes..\n
-                    4.\tSecond round is surprise.\n"
+    <string name="total">\n\n
+                    \t\t\t\t\t\t\tWho let The Chaos out?\n\n
+                    Present us with your talent of multitasking and your knowledge of the computer system! Clear out the chaos in your minds,
+                    and start brainstorming with your team mates to solve the different aptitude, reasoning and system-based problems to be the ultimate winners.
+                    \n\nRules:\n
+                    1.\tThere will be team of  two  members.\n\n
+                    2.\tWhole event completed in two round\n\n
+                    3.\t1st round is App based… there will be 30 question based on (Programming, GK , Logical Reasoning ,Computer tricky questions) . Time limit   30 minutes..\n\n
+                    4.\tSecond round is surprise.\n\n
     </string>
+
+
+    <string name="tattoo_tagline">Ink up your Imagination</string>
+    <string name="brain_tagline">Ace the Brain Race</string>
+    <string name="counter_tagline">Fire in the Hole</string>
+    <string name="treasure_tagline">Not all treasure‘s silver and gold, mate</string>
+    <string name="gadget_tagline">Unleash the GEEKZMO in you</string>
+    <string name="poy_tagline">Come Steal the Show</string>
+    <!--<string name="socket_tagline">Crusading the Network Arena</string>-->
+    <string name="trico_tagline">Back to basics</string>
+    <string name="total_tagline">Who let the chaos out????</string>
 
 
 </resources>
