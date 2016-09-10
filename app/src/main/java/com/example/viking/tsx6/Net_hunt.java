@@ -1,6 +1,7 @@
 package com.example.viking.tsx6;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -38,10 +39,11 @@ public class Net_hunt extends AppCompatActivity {
 
     String question,answer,img;
     int level;
-    TextView txt_question,txt_level;
+    TextView txt_question,txt_level,nethunt_title;
     EditText txt_answer;
     ImageView img_ques;
-   // String Username,Password;
+    Context context;
+
 
     Bitmap bitmap;
     ProgressDialog pDialog;
@@ -53,20 +55,20 @@ public class Net_hunt extends AppCompatActivity {
         setContentView(R.layout.net_hunt);
         Intent intent = getIntent();
         String a = intent.getStringExtra("username");
+        context = this.getApplicationContext();
 
 
         txt_question=(TextView)findViewById(R.id.ques);
         txt_level=(TextView)findViewById(R.id.level);
         txt_answer=(EditText)findViewById(R.id.et1);
+        nethunt_title=(TextView)findViewById(R.id.nethunt_title);
+        nethunt_title.setTypeface(MainActivity.typeface);
         new on_start().execute();
 
     }
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-       // intent.putExtra("username",Username);
 
 
     }
@@ -144,6 +146,7 @@ public class Net_hunt extends AppCompatActivity {
                 //System.out.println("dkjvhsakjdnksjadbsakjdncsakdbsakjdcnkwjhdc"+response);
             } catch (Exception e) {
                 e.printStackTrace();
+                Config.showToast(context, "Can't connect to server..try again later");
             }
             //System.out.println("dkjvhsakjdnksjadbsakjdncsakdbsakjdcnkwjhdc"+response);
             return forQuestion;
@@ -152,10 +155,14 @@ public class Net_hunt extends AppCompatActivity {
         protected void onPostExecute(for_question result) {
             super.onPostExecute(result);
             dialog.dismiss();
-            if(result.level.equals("-1"))
+            if(result.level.equals("-2"))
+            {
+                Config.showToast(context, "NetHunt isn't started yet...");
+                onBackPressed();
+
+            }else if(result.level.equals("-1"))
             {
                 img_ques=(ImageView)findViewById(R.id.img_view);
-                Log.e("RESPONSE", "it contain image");
                 img_ques.setVisibility(View.INVISIBLE);
                 txt_question=(TextView)findViewById(R.id.ques);
                 txt_answer=(EditText)findViewById(R.id.et1);

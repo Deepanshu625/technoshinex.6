@@ -22,15 +22,11 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -55,17 +51,17 @@ public class MainActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private static Context context;
     private EditText user, pass;
-    public static String Username, Password, email;
-    public static TextView username_textview;
+    public static String  Password, email;
+    public static TextView firstname_textview;
     Dialog dialog;
     public String id = "v=_yXcoACi0kE";
     public static Typeface typeface, typeface_1, typeface_2, typeface_3;
     public static SharedPreferences sharedPreferences;
 
 
-    FloatingActionButton fab;
+    public static FloatingActionButton fab;
     Boolean check_login;
-    String sharedprefrences_username;
+    String sharedprefrences_username, sharedprefrences_password;
     SharedPreferences.Editor ed;
 
     @Override
@@ -83,17 +79,18 @@ public class MainActivity extends AppCompatActivity {
         typeface_2 = Typeface.createFromAsset(getAssets(), "fonts/PlayfairDisplay.ttf");
         typeface_3 = Typeface.createFromAsset(getAssets(), "fonts/Montserrat-Regular.ttf");
 
-        username_textview = (TextView) findViewById(R.id.username);
-        username_textview.setTypeface(typeface_2);
+        firstname_textview = (TextView) findViewById(R.id.username);
+        firstname_textview.setTypeface(typeface_2);
 
         sharedPreferences = getSharedPreferences("Login", MODE_PRIVATE);
         check_login = sharedPreferences.getBoolean("key1", false);
         sharedprefrences_username = sharedPreferences.getString("Username", "");
-        if (check_login) {
-            username_textview.setText("Hello, " + sharedprefrences_username);
-        } else {
-            username_textview.setText("");
-        }
+        sharedprefrences_password =sharedPreferences.getString("Password","");
+//        if (check_login) {
+//            firstname_textview.setText("Hello, " + sharedprefrences_username);
+//        } else {
+//            firstname_textview.setText("");
+//        }
 
 
         TextView tv = (TextView) findViewById(R.id.logo_white);
@@ -200,10 +197,10 @@ public class MainActivity extends AppCompatActivity {
 
 
         //Floating Action Buttons
-        fab = (FloatingActionButton) findViewById(R.id.fab);
+       // fab = (FloatingActionButton) findViewById(R.id.fab);
 
         //for floating action button...
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setBackgroundTintList(ColorStateList.valueOf(Color
                 .parseColor("#03A9F4")));
         fab.setOnClickListener(new View.OnClickListener() {
@@ -282,47 +279,59 @@ public class MainActivity extends AppCompatActivity {
         email = user.getText().toString();
         Password = pass.getText().toString();
         login login = new login();
-        login.newInstance(email, Password, context, dialog);
+        login.newInstance(email, Password, MainActivity.this, dialog);
     }
 
-    public static void getUsername(String username) {
-        Username = username;
+    public static void setname(String firstname) {
+       // Username = firstname;
 
-        if (Username == null) {
-            Toast.makeText(MainActivity.context, "Wrong username or password", Toast.LENGTH_SHORT).show();
-        } else {
-            //username_textview.setVisibility(View.VISIBLE);
-            username_textview.setText("Hello, " + Username);
+            firstname_textview.setText("Hello, " + firstname);
+            fab.setImageResource(R.mipmap.ic_lock_open_white);
             SharedPreferences.Editor ed = sharedPreferences.edit();
             ed.putBoolean("key1", true);
-            ed.putString("Username", Username);
+            ed.putString("Username", email);
+            ed.putString("Password", Password);
             ed.commit();
-            Toast.makeText(MainActivity.context, "Succecessfully logged in as " + Username, Toast.LENGTH_SHORT).show();
 
 
-        }
+
+
+
+    }
+    public static void removename(){
+        firstname_textview.setText("");
+        fab.setImageResource(R.mipmap.fingerprint_icon);
 
     }
 
     public void login_dialog(View view) {
         dialog.dismiss();
+        //sharedPreferences = getSharedPreferences("Login", MODE_PRIVATE);
+        check_login = sharedPreferences.getBoolean("key1", false);
+        sharedprefrences_username = sharedPreferences.getString("Username", "");
+        sharedprefrences_password =sharedPreferences.getString("Password","");
         Toast.makeText(getApplication(), "Let's login first", Toast.LENGTH_SHORT).show();
         dialog = new Dialog(MainActivity.this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.log_in);
-        //dialog.setTitle("log In");
         dialog.show();
+        user = (EditText) dialog.findViewById(R.id.editText_username);
+        pass = (EditText) dialog.findViewById(R.id.editText_password);
+        if (check_login) {
+            user.setText(sharedprefrences_username);
+            pass.setText(sharedprefrences_password);
+            //firstname_textview.setText("Hello, " + sharedprefrences_username);
+        }
 
 
     }
 
     public void logout(View view) {
 
-        Username = null;
+
         Toast.makeText(getApplication(), "Successfully, Logged out", Toast.LENGTH_SHORT).show();
-//        username_textview.setText("");
         logout logout = new logout();
-        logout.newInstance( context, dialog);
+        logout.newInstance( MainActivity.this, dialog);
 
 //        ed = sharedPreferences.edit();
 //        ed.putBoolean("key1", false);
@@ -348,7 +357,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void start_nethunt(View view) {
-        System.out.println("username" + Username);
+       // System.out.println("username" + Username);
         if (Config.USERNAME == null) {
             Toast.makeText(getApplication(), "You have to login first", Toast.LENGTH_SHORT).show();
             dialog = new Dialog(MainActivity.this);

@@ -10,6 +10,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,8 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Toast;
 import com.example.viking.tsx6.MainActivity;
+import com.example.viking.tsx6.R;
+import com.example.viking.tsx6.Splash_screen;
 import com.example.viking.tsx6.for_login;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -31,12 +34,14 @@ import javax.net.ssl.HttpsURLConnection;
 /**
  * Created by viking on 17/8/16.
  */
-public class login extends Fragment {
+public class login extends Fragment implements
+        android.view.View.OnClickListener {
 
     String Username,Password;
     private EditText user,pass;
     Context context;
     Dialog dialog;
+
 
     public String newInstance(String username,String password,Context context,Dialog dialog) {
         Username=username;
@@ -44,12 +49,24 @@ public class login extends Fragment {
         this.context = context;
         this.dialog = dialog;
 
+
+
+
         new on_start().execute();
         System.out.println("Username:" + Username);
         return Username;
     }
 
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+
+
+            default:
+                break;
+        }
+    }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
@@ -60,15 +77,22 @@ public class login extends Fragment {
     }
     private class on_start extends AsyncTask<Void, Void, String>
     {
-        //private final ProgressDialog dialog_1 = new ProgressDialog(context.getApplicationContext());
-       // ProgressDialog dialog_1 = new ProgressDialog(MainActivity);
-       //ProgressDialog dialog_1;
+
+        private final ProgressDialog dialog_1 = new ProgressDialog(context);
+        Context context_local;
+
+        public Context getContext_local() {
+            context_local=context;
+            return context_local;
+        }
+
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-         //   dialog_1.setMessage("Retrieving Question.......");
-        //    dialog_1.show();
-       //     dialog_1 = ProgressDialog.show(getActivity(), "Loading...", "Please wait...", true);
+
+            dialog_1.setMessage("Loading, please wait.......");
+            dialog_1.show();
+
         }
         @Override
         protected String doInBackground(Void... params)
@@ -80,13 +104,11 @@ public class login extends Fragment {
             if(Config.SESS_ID!=null) {
                 POST_PARAMS += "&sess_id=" + Config.SESS_ID;
             }
-            Log.e("POST PARAMS",POST_PARAMS);
+            Log.e("POST PARAMS", POST_PARAMS);
 
             if(haveNetworkConnection())
             {
                 try {
-
-                    Log.e("aasfasf","asfasf");
 
 //                    URL url = new URL("http://192.168.0.102/login/login.php");
                     URL url = new URL(Config.LOGIN_URL);
@@ -131,6 +153,7 @@ public class login extends Fragment {
                     //System.out.println(response);
                 } catch (Exception e) {
                     e.printStackTrace();
+                    //Config.showToast(getContext(), "Can't connect to server..try again later");
                 }
             }
             else {
@@ -144,7 +167,7 @@ public class login extends Fragment {
         protected void onPostExecute(String response) {
             super.onPostExecute(response);
             Log.e("RESPONSE", response);
-          //  dialog_1.dismiss();
+            dialog_1.dismiss();
             if(response.equals("no internet"))
             {
                 Toast.makeText(context, "No internet Connection", Toast.LENGTH_SHORT).show();
@@ -161,10 +184,13 @@ public class login extends Fragment {
                     JSONObject jsonObject=new JSONObject(response);
                     boolean success=jsonObject.getBoolean("success");
                     String message=jsonObject.getString("message");
+                    String f_name = jsonObject.getString("firstname");
+                    //String f_name ="User";
+                    System.out.println("First name is "+f_name);
                     if(success) {
                         Config.SESS_ID=jsonObject.getString("sess_id");
                         Config.showToast(context, message);
-                       // setUsername(jsonObject.getString("user"));
+                        setUsername(f_name);
                         Config.USERNAME=Username;
                         Config.LOGGED_IN=true;
                         Config.PASSWORD=Password;
@@ -177,6 +203,7 @@ public class login extends Fragment {
 
                 } catch (JSONException e) {
                     e.printStackTrace();
+
                 }
             }
 
@@ -194,13 +221,12 @@ public class login extends Fragment {
 
         }
     }
-    public void setUsername(String username)
+    public void setUsername(String first_name)
     {
-        Username = username;
+        Username = first_name;
 
-        //MainActivity mainActivity = new MainActivity();
-        //mainActivity.getUsername(Username);
-        MainActivity.getUsername(Username);
+
+        MainActivity.setname(Username);
 
         System.out.println("Username:"+Username);
     }

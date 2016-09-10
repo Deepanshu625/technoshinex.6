@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="3"
-        android:id="@+id/textView" />
+        android:id="@+id/nethunt_title" />
 
     <TextView
         android:layout_width="match_parent"
@@ -34,14 +34,14 @@
         android:layout_below="@+id/textView"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
         android:layout_above="@+id/linearLayout2" />
     <LinearLayout
         android:layout_height="0dp"
         android:layout_width="match_parent"
         android:orientation="vertical"
-        android:background="@drawable/chalkboard_wood_black"
+        android:background="@drawable/board"
         android:layout_above="@+id/button2"
         android:layout_alignParentLeft="true"
         android:layout_weight="5"
@@ -105,6 +105,7 @@
             android:layout_marginRight="10dp"
             android:textSize="30dp"
             android:hint="answer"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:gravity="center"
             android:id="@+id/et1" />

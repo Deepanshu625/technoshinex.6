@@ -1,7 +1,10 @@
 package com.example.viking.tsx6.Fragments;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -98,13 +101,13 @@ public class register extends Fragment {
     private class on_register extends AsyncTask<Void, Void, String>
     {
 
-        // private final ProgressDialog dialog = new ProgressDialog(getActivity());
+         private final ProgressDialog dialog = new ProgressDialog(context);
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
 
-            //     dialog.setMessage("Retrieving Question.......");
-            //     dialog.show();
+                 dialog.setMessage("Uploading, please wait.......");
+                 dialog.show();
         }
         @Override
         protected String doInBackground(Void... params)
@@ -178,7 +181,7 @@ public class register extends Fragment {
         @Override
         protected void onPostExecute(String response) {
             super.onPostExecute(response);
-
+            dialog.dismiss();
             if(response.equals("no internet"))
             {
                 Toast.makeText(context, "No internet Connection", Toast.LENGTH_SHORT).show();
@@ -193,6 +196,18 @@ public class register extends Fragment {
                     if(success==true)
                     {
                         dialog_register.dismiss();
+//                        AlertDialog.Builder builder1 = new AlertDialog.Builder(context,R.style.ThemeDialogCustom);
+//                        builder1.setMessage("Verification Mail has been sent to your mail. Please verify email");
+//                        builder1.setCancelable(true);
+//                        builder1.setPositiveButton("Ok",
+//                                new DialogInterface.OnClickListener() {
+//                                    public void onClick(DialogInterface dialog, int id) {
+//                                        dialog.cancel();
+//                                    }
+//                                });
+//                        AlertDialog alert11 = builder1.create();
+//                        alert11.show();
+
                     }
                 }
                 catch (JSONException e) {

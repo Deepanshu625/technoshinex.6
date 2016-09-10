@@ -41,7 +41,7 @@
             android:textColor="@color/splash_text_color"
             android:textSize="17dp"
             android:onClick="login_dialog"
-            android:drawableLeft="@mipmap/ic_lock_open"
+            android:drawableLeft="@mipmap/ic_lock_outline"
             android:layout_alignBottom="@+id/imageView"
             />
 

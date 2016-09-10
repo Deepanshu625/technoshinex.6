@@ -41,7 +41,7 @@
         android:textColor="@color/splash_text_color"
         android:textSize="17dp"
         android:onClick="logout"
-        android:drawableLeft="@mipmap/ic_lock_outline"
+        android:drawableLeft="@mipmap/ic_lock_open"
         android:layout_alignBottom="@+id/imageView"
         />
 

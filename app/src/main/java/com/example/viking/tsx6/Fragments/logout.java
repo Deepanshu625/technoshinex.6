@@ -1,6 +1,7 @@
 package com.example.viking.tsx6.Fragments;
 
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -56,12 +57,12 @@ public class logout extends Fragment {
     }
     private class on_start extends AsyncTask<Void, Void, String>
     {
-        // private final ProgressDialog dialog = new ProgressDialog(getActivity());
+         private final ProgressDialog dialog_1 = new ProgressDialog(context);
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            //     dialog.setMessage("Retrieving Question.......");
-            //     dialog.show();
+                dialog_1.setMessage("Loading, please wait.......");
+                 dialog_1.show();
         }
         @Override
         protected String doInBackground(Void... params)
@@ -136,7 +137,7 @@ public class logout extends Fragment {
         protected void onPostExecute(String response) {
             super.onPostExecute(response);
             Log.e("RESPONSE", response);
-//         //   dialog.dismiss();
+            dialog_1.dismiss();
             if(response.equals("no internet"))
             {
                 Toast.makeText(context, "No internet Connection", Toast.LENGTH_SHORT).show();
@@ -161,6 +162,7 @@ public class logout extends Fragment {
                         Config.SESS_ID=null;
                         Config.PASSWORD=null;
                         dialog.dismiss();
+                        MainActivity.removename();
                     }
                     else {
                         Config.showToast(context, message);
