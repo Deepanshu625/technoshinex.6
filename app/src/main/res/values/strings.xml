@@ -32,6 +32,10 @@
         The three-day fiesta consists of events spanning every possible field, ranging from coding events to challenge the hardcore coders, to providing a platform for all to showcase their hidden talents.
         There are quizzes on diverse topics, and the technical events encourage the enthusiasts to apply their theoretical knowledge in the real world. With 14 events and participation from over 20 colleges all over India,
         Technoshine leads the light of instilling a culture of science, technology and innovation among the youth of the nation.
+        This is the TechFest of CA Dept, NIT DGP, is a melting pot of the technically inclined students from colleges all over Eastern India.
+        The three-day fiesta consists of events spanning every possible field, ranging from coding events to challenge the hardcore coders, to providing a platform for all to showcase their hidden talents.
+        There are quizzes on diverse topics, and the technical events encourage the enthusiasts to apply their theoretical knowledge in the real world. With 14 events and participation from over 20 colleges all over India,
+        Technoshine leads the light of instilling a culture of science, technology and innovation among the youth of the nation.
         </string>
 
     <!--Online Events -->
@@ -210,6 +214,14 @@
     <!--<string name="socket_tagline">Crusading the Network Arena</string>-->
     <string name="trico_tagline">Back to basics</string>
     <string name="total_tagline">Who let the chaos out????</string>
+
+
+
+    <!-- For nethunt-->
+    <string name="text1">1. All Characters should be in small letters</string>
+    <string name="text2">2. Numbers should be enter in alphabetical form</string>
+    <string name="text3">3. There should be no space in words</string>
+    <string name="text4">4. There is no time limit for any question</string>
 
 
 </resources>

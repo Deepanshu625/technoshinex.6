@@ -22,6 +22,9 @@ import com.example.viking.tsx6.R;
 import com.example.viking.tsx6.for_login;
 import com.example.viking.tsx6.for_register;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
@@ -109,20 +112,23 @@ public class register extends Fragment {
 
             for_register for_register = new for_register("","","","","","","");
             String line, response = "";
-            String POST_PARAMS = "FirstName=" +first_name ;
-            POST_PARAMS += "&LastName=" +last_name;
-            POST_PARAMS += "&College=" +college;
+            String POST_PARAMS = "firstname=" +first_name ;
+            POST_PARAMS += "&lastname=" +last_name;
+            POST_PARAMS += "&college=" +college;
             POST_PARAMS += "&country=" +country;
             POST_PARAMS += "&contact=" +contact;
-            POST_PARAMS += "&UserName=" +email;
-            POST_PARAMS += "&Password=" +password;
-            POST_PARAMS += "&VerifyPassword=" +verify_password;
+            POST_PARAMS += "&email=" +email;
+            POST_PARAMS += "&password=" +password;
+            System.out.println("in the register class.........................1");
+//            POST_PARAMS += "&VerifyPassword=" +verify_password;
             if(haveNetworkConnection())
             {
                 try {
 
-                    URL url = new URL("http://192.168.0.102/login/register.php");
+//                    URL url = new URL("http://192.168.0.102/login/register.php");
+                    URL url = new URL(Config.REGISTER_URL);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                    System.out.println("in the register class.........................2");
                     if (Build.VERSION.SDK != null && Build.VERSION.SDK_INT > 13) {
                         //conn.setRequestProperty("Connection", "close");
                     }
@@ -131,6 +137,7 @@ public class register extends Fragment {
                     conn.setConnectTimeout(15000);
                     conn.setRequestMethod("POST");
                     conn.setDoInput(true);
+                    System.out.println("in the register class.........................3");
 
                     // For POST only - BEGIN
                     conn.setDoOutput(true);
@@ -140,6 +147,7 @@ public class register extends Fragment {
                     os.close();
                     // For POST only - END
                     //conn.connect();
+                    System.out.println("in the register class.........................4");
 
                     int responseCode = conn.getResponseCode();
 
@@ -170,21 +178,41 @@ public class register extends Fragment {
         @Override
         protected void onPostExecute(String response) {
             super.onPostExecute(response);
+
             if(response.equals("no internet"))
             {
                 Toast.makeText(context, "No internet Connection", Toast.LENGTH_SHORT).show();
             }
-            if(response.equals("User already exist"))
+            else
             {
-                Toast.makeText(context, "User already exist...try something else", Toast.LENGTH_SHORT).show();
-                System.out.println("user already exist");
+                try {
+                    JSONObject jsonObject=new JSONObject(response);
+                    Boolean success=jsonObject.getBoolean("success");
+                    String message=jsonObject.getString("message");
+                    Config.showToast(context,message);
+                    if(success==true)
+                    {
+                        dialog_register.dismiss();
+                    }
+                }
+                catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
-            if(response.equals("Register"))
-            {
-                Toast.makeText(context, "Registered successfully", Toast.LENGTH_SHORT).show();
-                System.out.println("Registered successfully");
-                dialog_register.dismiss();
-            }
+
+
+
+//            if(response.equals("User already exist"))
+//            {
+//                Toast.makeText(context, "User already exist...try something else", Toast.LENGTH_SHORT).show();
+//                System.out.println("user already exist");
+//            }
+//            if(response.equals("Register"))
+//            {
+//                Toast.makeText(context, "Registered successfully", Toast.LENGTH_SHORT).show();
+//                System.out.println("Registered successfully");
+//                dialog_register.dismiss();
+//            }
 
         }
     }

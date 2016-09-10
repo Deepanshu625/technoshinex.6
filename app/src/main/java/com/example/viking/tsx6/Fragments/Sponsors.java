@@ -21,7 +21,7 @@ import com.github.florent37.materialviewpager.adapter.RecyclerViewMaterialAdapte
 public class Sponsors extends android.support.v4.app.Fragment {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
-    int[] myImageList = new int[]{R.drawable.hackerrank_default_og, R.drawable.codechef_logo, R.drawable.dominos_logo, R.drawable.pantaloon, R.drawable.studio,R.drawable.vatika};
+    int[] myImageList = new int[]{R.drawable.hackerrank_default_og,R.drawable.bank, R.drawable.codechef_logo, R.drawable.dominos_logo, R.drawable.pantaloon, R.drawable.studio,R.drawable.vatika};
 
     public static Sponsors newInstance() {
         return new Sponsors();

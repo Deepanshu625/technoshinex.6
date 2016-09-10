@@ -35,12 +35,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.viking.tsx6.Fragments.About_Fragment;
+import com.example.viking.tsx6.Fragments.Config;
 import com.example.viking.tsx6.Fragments.Contact_us_fragment;
 import com.example.viking.tsx6.Fragments.Nethunt_Fragment;
 import com.example.viking.tsx6.Fragments.Offline_fragment;
 import com.example.viking.tsx6.Fragments.Online_fragment;
 import com.example.viking.tsx6.Fragments.Sponsors;
 import com.example.viking.tsx6.Fragments.login;
+import com.example.viking.tsx6.Fragments.logout;
 import com.example.viking.tsx6.Fragments.register;
 import com.github.florent37.materialviewpager.MaterialViewPager;
 import com.github.florent37.materialviewpager.header.HeaderDesign;
@@ -207,8 +209,8 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                check_login = sharedPreferences.getBoolean("key1", false);
-                if (check_login) {
+                //check_login = sharedPreferences.getBoolean("key1", false);
+                if (Config.USERNAME!=null) {
                     dialog = new Dialog(MainActivity.this);
                     dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                     dialog.setContentView(R.layout.logout);
@@ -271,7 +273,6 @@ public class MainActivity extends AppCompatActivity {
     public void register_button(View view) {
         register register = new register();
         register.newInstance(dialog, MainActivity.this);
-        //dialog.dismiss();
 
     }
 
@@ -280,7 +281,6 @@ public class MainActivity extends AppCompatActivity {
         pass = (EditText) dialog.findViewById(R.id.editText_password);
         email = user.getText().toString();
         Password = pass.getText().toString();
-        //dialog.dismiss();
         login login = new login();
         login.newInstance(email, Password, context, dialog);
     }
@@ -301,6 +301,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         }
+
     }
 
     public void login_dialog(View view) {
@@ -319,12 +320,15 @@ public class MainActivity extends AppCompatActivity {
 
         Username = null;
         Toast.makeText(getApplication(), "Successfully, Logged out", Toast.LENGTH_SHORT).show();
-        username_textview.setText("");
-        ed = sharedPreferences.edit();
-        ed.putBoolean("key1", false);
-        ed.putString("Username", "");
-        ed.commit();
-        dialog.dismiss();
+//        username_textview.setText("");
+        logout logout = new logout();
+        logout.newInstance( context, dialog);
+
+//        ed = sharedPreferences.edit();
+//        ed.putBoolean("key1", false);
+//        ed.putString("Username", "");
+//        ed.commit();
+        //dialog.dismiss();
 
     }
 
@@ -345,12 +349,16 @@ public class MainActivity extends AppCompatActivity {
 
     public void start_nethunt(View view) {
         System.out.println("username" + Username);
-        if (Username == null) {
-            Toast.makeText(getApplication(), "u have to login first, from there ==>", Toast.LENGTH_SHORT).show();
+        if (Config.USERNAME == null) {
+            Toast.makeText(getApplication(), "You have to login first", Toast.LENGTH_SHORT).show();
+            dialog = new Dialog(MainActivity.this);
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            dialog.setContentView(R.layout.for_new_floating);
+            dialog.show();
         } else {
             Intent intent = new Intent(this, Net_hunt.class);
             startActivity(intent);
-            intent.putExtra("username", Username);
+//            //intent.putExtra("username", Username);
         }
 
     }
@@ -358,6 +366,7 @@ public class MainActivity extends AppCompatActivity {
     public void backspace(View view) {
         dialog.dismiss();
     }
+
 
 
     @SuppressWarnings("NewApi")

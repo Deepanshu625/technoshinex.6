@@ -1,7 +1,6 @@
 package com.example.viking.tsx6.Fragments;
 
 import android.app.Dialog;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -11,42 +10,39 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import com.example.viking.tsx6.MainActivity;
 import com.example.viking.tsx6.for_login;
+
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+
 import javax.net.ssl.HttpsURLConnection;
 
-
 /**
- * Created by viking on 17/8/16.
+ * Created by viking on 7/9/16.
  */
-public class login extends Fragment {
+public class logout extends Fragment {
 
-    String Username,Password;
-    private EditText user,pass;
+
     Context context;
     Dialog dialog;
 
-    public String newInstance(String username,String password,Context context,Dialog dialog) {
-        Username=username;
-        Password=password;
+    public void newInstance(Context context,Dialog dialog) {
+
         this.context = context;
         this.dialog = dialog;
 
         new on_start().execute();
-        System.out.println("Username:" + Username);
-        return Username;
     }
 
 
@@ -60,27 +56,23 @@ public class login extends Fragment {
     }
     private class on_start extends AsyncTask<Void, Void, String>
     {
-        //private final ProgressDialog dialog_1 = new ProgressDialog(context.getApplicationContext());
-       // ProgressDialog dialog_1 = new ProgressDialog(MainActivity);
-       //ProgressDialog dialog_1;
+        // private final ProgressDialog dialog = new ProgressDialog(getActivity());
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-         //   dialog_1.setMessage("Retrieving Question.......");
-        //    dialog_1.show();
-       //     dialog_1 = ProgressDialog.show(getActivity(), "Loading...", "Please wait...", true);
+            //     dialog.setMessage("Retrieving Question.......");
+            //     dialog.show();
         }
         @Override
         protected String doInBackground(Void... params)
         {
             for_login for_login = new for_login("","");
             String line, response = "";
-            String POST_PARAMS = "email=" +Username ;
-            POST_PARAMS += "&password=" +Password;
-            if(Config.SESS_ID!=null) {
-                POST_PARAMS += "&sess_id=" + Config.SESS_ID;
-            }
-            Log.e("POST PARAMS",POST_PARAMS);
+            String POST_PARAMS = "sess_id=" +Config.SESS_ID ;
+//            if(Config.SESS_ID!=null) {
+//                POST_PARAMS += "&sess_id=" + Config.SESS_ID;
+//            }
+            Log.e("POST PARAMS", POST_PARAMS);
 
             if(haveNetworkConnection())
             {
@@ -89,7 +81,7 @@ public class login extends Fragment {
                     Log.e("aasfasf","asfasf");
 
 //                    URL url = new URL("http://192.168.0.102/login/login.php");
-                    URL url = new URL(Config.LOGIN_URL);
+                    URL url = new URL(Config.LOGOUT_URL);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                     if (Build.VERSION.SDK != null && Build.VERSION.SDK_INT > 13) {
                         //conn.setRequestProperty("Connection", "close");
@@ -144,7 +136,7 @@ public class login extends Fragment {
         protected void onPostExecute(String response) {
             super.onPostExecute(response);
             Log.e("RESPONSE", response);
-          //  dialog_1.dismiss();
+//         //   dialog.dismiss();
             if(response.equals("no internet"))
             {
                 Toast.makeText(context, "No internet Connection", Toast.LENGTH_SHORT).show();
@@ -162,12 +154,12 @@ public class login extends Fragment {
                     boolean success=jsonObject.getBoolean("success");
                     String message=jsonObject.getString("message");
                     if(success) {
-                        Config.SESS_ID=jsonObject.getString("sess_id");
+                        //Config.SESS_ID=jsonObject.getString("sess_id");
                         Config.showToast(context, message);
-                       // setUsername(jsonObject.getString("user"));
-                        Config.USERNAME=Username;
-                        Config.LOGGED_IN=true;
-                        Config.PASSWORD=Password;
+                        Config.USERNAME=null;
+                        Config.LOGGED_IN=false;
+                        Config.SESS_ID=null;
+                        Config.PASSWORD=null;
                         dialog.dismiss();
                     }
                     else {
@@ -180,30 +172,9 @@ public class login extends Fragment {
                 }
             }
 
-
-
-
-//            if(response.equals("ok"))
-//            {
-//                setUsername(Username);
-//            }
-//            if(response.equals("no"))
-//            {
-//                setUsername(null);
-//            }
-
         }
     }
-    public void setUsername(String username)
-    {
-        Username = username;
 
-        //MainActivity mainActivity = new MainActivity();
-        //mainActivity.getUsername(Username);
-        MainActivity.getUsername(Username);
-
-        System.out.println("Username:"+Username);
-    }
 
     private boolean haveNetworkConnection() {
         boolean haveConnectedWifi = false;

@@ -62,5 +62,5 @@
         android:layout_alignParentTop="true"
         android:padding="20dp"
         android:text=""
-        android:textColor="#020202" />
+        android:textColor="#ffffff" />
 </RelativeLayout>

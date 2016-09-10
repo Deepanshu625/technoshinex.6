@@ -39,7 +39,7 @@ public class About_Adapter extends
 
 
         // Inflate the custom layout
-        View contactView = inflater.inflate(R.layout.about, parent, false);
+        View contactView = inflater.inflate(R.layout.cardview_about, parent, false);
 
         // Return a new holder instance
         ViewHolder viewHolder = new ViewHolder(contactView);
