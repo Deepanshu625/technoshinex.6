@@ -79,12 +79,7 @@ public class login extends Fragment implements
     {
 
         private final ProgressDialog dialog_1 = new ProgressDialog(context);
-        Context context_local;
 
-        public Context getContext_local() {
-            context_local=context;
-            return context_local;
-        }
 
         @Override
         protected void onPreExecute() {
@@ -203,21 +198,11 @@ public class login extends Fragment implements
 
                 } catch (JSONException e) {
                     e.printStackTrace();
+                    Config.showToast(context, "Can't connect to server, please try again later or close the proxy IP if it is working ");
 
                 }
             }
 
-
-
-
-//            if(response.equals("ok"))
-//            {
-//                setUsername(Username);
-//            }
-//            if(response.equals("no"))
-//            {
-//                setUsername(null);
-//            }
 
         }
     }

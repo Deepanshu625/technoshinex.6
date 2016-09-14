@@ -47,13 +47,7 @@ public class Sponsors_Adapter extends RecyclerView.Adapter<Sponsors_Adapter.View
         // Set item views based on the data model
 
         im.setImageBitmap(decodeSampledBitmap(context.getResources(), imglist[position], 200, 200));
-       // im.setImageResource(imglist[position]);
-        //im.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        //im.setPadding(3,3,3,3);
 
-        //CardView cardView = viewHolder.cardView;
-        //final int[] back_col = context.getResources().getIntArray(R.array.sponsors);
-        //cardView.setCardBackgroundColor(back_col[position]);
     }
     @Override
     public Sponsors_Adapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {

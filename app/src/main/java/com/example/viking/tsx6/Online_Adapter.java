@@ -37,9 +37,7 @@ public class Online_Adapter extends RecyclerView.Adapter<Online_Adapter.ViewHold
         public TextView card_title, card_content;
         public Button button;
         public CardView cardView;
-        //int[] back_col;
 
-        //  public TextView textView;
         public ViewHolder(View itmView) {
             super(itmView);
 
@@ -49,7 +47,7 @@ public class Online_Adapter extends RecyclerView.Adapter<Online_Adapter.ViewHold
             button = (Button) itemView.findViewById(R.id.card_button);
             cardView = (CardView) itemView.findViewById(R.id.card_view);
             imageView_background = (ImageView) itmView.findViewById(R.id.background_dialog);
-           // back_col = new int[] {R.color.just,R.color.net,R.color.inspire,R.color.code};
+
         }
 
     }
@@ -94,16 +92,9 @@ public class Online_Adapter extends RecyclerView.Adapter<Online_Adapter.ViewHold
 
                 textView.setText(contentlist[position]);
                 textView.setTypeface(MainActivity.typeface_3);
-                
-                //imageView.invalidate();
-                //textView.setZ(5);
-                imageView.setImageBitmap(decodeSampledBitmap(context.getResources(), poster[position], 200, 100));
-//                BitmapDrawable drawable = (BitmapDrawable) imageView.getDrawable();
-//                Bitmap bitmap = drawable.getBitmap();
-//                Bitmap blurred = MainActivity.blurRenderScript(bitmap, 25);//second parameter is radius
-//                imageView.setImageBitmap(blurred);
 
-               // dialog.getWindow().setBackgroundDrawableResource(poster[position - 1]);
+                imageView.setImageBitmap(decodeSampledBitmap(context.getResources(), poster[position], 200, 100));
+
                 ImageView imageView_background = (ImageView) dialog.findViewById(R.id.background_dialog);
                 imageView_background.setImageBitmap(decodeSampledBitmap(context.getResources(), poster[position], 200, 100));
                 dialog.getWindow().setFormat(PixelFormat.TRANSLUCENT);

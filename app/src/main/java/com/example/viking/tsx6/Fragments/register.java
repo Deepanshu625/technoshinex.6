@@ -166,7 +166,7 @@ public class register extends Fragment {
                         Log.e("RESPONSE", response);
 
                     }
-                    //System.out.println(response);
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -196,38 +196,19 @@ public class register extends Fragment {
                     if(success==true)
                     {
                         dialog_register.dismiss();
-//                        AlertDialog.Builder builder1 = new AlertDialog.Builder(context,R.style.ThemeDialogCustom);
-//                        builder1.setMessage("Verification Mail has been sent to your mail. Please verify email");
-//                        builder1.setCancelable(true);
-//                        builder1.setPositiveButton("Ok",
-//                                new DialogInterface.OnClickListener() {
-//                                    public void onClick(DialogInterface dialog, int id) {
-//                                        dialog.cancel();
-//                                    }
-//                                });
-//                        AlertDialog alert11 = builder1.create();
-//                        alert11.show();
 
                     }
                 }
                 catch (JSONException e) {
                     e.printStackTrace();
+                    Config.showToast(context, "Can't connect to server, please try again later or close the proxy IP if it is working ");
+
                 }
             }
 
 
 
-//            if(response.equals("User already exist"))
-//            {
-//                Toast.makeText(context, "User already exist...try something else", Toast.LENGTH_SHORT).show();
-//                System.out.println("user already exist");
-//            }
-//            if(response.equals("Register"))
-//            {
-//                Toast.makeText(context, "Registered successfully", Toast.LENGTH_SHORT).show();
-//                System.out.println("Registered successfully");
-//                dialog_register.dismiss();
-//            }
+
 
         }
     }

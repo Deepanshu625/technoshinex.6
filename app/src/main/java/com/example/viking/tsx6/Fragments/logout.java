@@ -70,9 +70,7 @@ public class logout extends Fragment {
             for_login for_login = new for_login("","");
             String line, response = "";
             String POST_PARAMS = "sess_id=" +Config.SESS_ID ;
-//            if(Config.SESS_ID!=null) {
-//                POST_PARAMS += "&sess_id=" + Config.SESS_ID;
-//            }
+
             Log.e("POST PARAMS", POST_PARAMS);
 
             if(haveNetworkConnection())
@@ -121,7 +119,7 @@ public class logout extends Fragment {
                     }
 
                     Log.e("aasfasf","aaaaaaaaaaaa");
-                    //System.out.println(response);
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -166,11 +164,13 @@ public class logout extends Fragment {
                     }
                     else {
                         Config.showToast(context, message);
-                        //setUsername(null);
+
                     }
 
                 } catch (JSONException e) {
                     e.printStackTrace();
+                    Config.showToast(context, "Can't connect to server, please try again later or close the proxy IP if it is working ");
+
                 }
             }
 

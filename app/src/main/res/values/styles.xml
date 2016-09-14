@@ -43,7 +43,7 @@
 
 
 
-    <style name="ThemeDialogCustom">
+    <style name="ThemeDialogCustom" parent="@android:style/Theme.Black.NoTitleBar.Fullscreen">
         <item name="android:textColor">#252424</item>
         </style>
 

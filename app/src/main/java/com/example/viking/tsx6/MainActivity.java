@@ -1,6 +1,8 @@
 package com.example.viking.tsx6;
 
+import android.app.AlarmManager;
 import android.app.Dialog;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -22,6 +24,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -30,6 +33,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.astuetz.PagerSlidingTabStrip;
 import com.example.viking.tsx6.Fragments.About_Fragment;
 import com.example.viking.tsx6.Fragments.Config;
 import com.example.viking.tsx6.Fragments.Contact_us_fragment;
@@ -43,10 +47,13 @@ import com.example.viking.tsx6.Fragments.register;
 import com.github.florent37.materialviewpager.MaterialViewPager;
 import com.github.florent37.materialviewpager.header.HeaderDesign;
 
+import java.util.Calendar;
+
 public class MainActivity extends AppCompatActivity {
 
 
     private MaterialViewPager mViewPager;
+    PagerSlidingTabStrip pagerSlidingTabStrip;
     private RecyclerView recyclerView;
     private Toolbar toolbar;
     private static Context context;
@@ -55,8 +62,10 @@ public class MainActivity extends AppCompatActivity {
     public static TextView firstname_textview;
     Dialog dialog;
     public String id = "v=_yXcoACi0kE";
-    public static Typeface typeface, typeface_1, typeface_2, typeface_3;
+    public static Typeface typeface, typeface_1, typeface_2, typeface_3,typeface_4,typeface_5;
     public static SharedPreferences sharedPreferences;
+    public static SharedPreferences notification_sharedpreferences;
+    PendingIntent pendingIntent;
 
 
     public static FloatingActionButton fab;
@@ -78,25 +87,60 @@ public class MainActivity extends AppCompatActivity {
         typeface_1 = Typeface.createFromAsset(getAssets(), "fonts/ChallengeContour.ttf");
         typeface_2 = Typeface.createFromAsset(getAssets(), "fonts/PlayfairDisplay.ttf");
         typeface_3 = Typeface.createFromAsset(getAssets(), "fonts/Montserrat-Regular.ttf");
+        typeface_4 = Typeface.createFromAsset(getAssets(), "fonts/KGBlankSpaceSketch.ttf");
+        typeface_5 = Typeface.createFromAsset(getAssets(), "fonts/KGBrokenVesselsSketch.ttf");
 
         firstname_textview = (TextView) findViewById(R.id.username);
         firstname_textview.setTypeface(typeface_2);
 
+
+        //to save email and password
         sharedPreferences = getSharedPreferences("Login", MODE_PRIVATE);
         check_login = sharedPreferences.getBoolean("key1", false);
         sharedprefrences_username = sharedPreferences.getString("Username", "");
         sharedprefrences_password =sharedPreferences.getString("Password","");
-//        if (check_login) {
-//            firstname_textview.setText("Hello, " + sharedprefrences_username);
-//        } else {
-//            firstname_textview.setText("");
-//        }
 
 
+        //to get notification
+        notification_sharedpreferences=getSharedPreferences("Notification",MODE_PRIVATE);
+        boolean notification[] = new boolean[13];
+        for(int i=0;i<13;i++)
+        {
+            notification[i]=notification_sharedpreferences.getBoolean("k"+(i+1),true);
+        }
+        int min=21,hour=12,date=14;
+        for(int i=0;i<13;i++)
+        {
+            if(i==2)
+            {
+                date++;
+                hour=9;
+                min=15;
+            }
+            if(i==7)
+            {
+                //date++;
+                hour=13;
+                min=2;
+            }
+            if (notification[i]) {
+                notify(date, hour, min);
+                ed = notification_sharedpreferences.edit();
+                ed.putBoolean("k" + (i + 1), false);
+                ed.commit();
+            }
+            min+=2;
+        }
+
+
+        //to print first name of logined user
         TextView tv = (TextView) findViewById(R.id.logo_white);
         tv.setTypeface(typeface);
 
+
+        //material view pager and tab layout
         mViewPager = (MaterialViewPager) findViewById(R.id.materialViewPager);
+        pagerSlidingTabStrip = (PagerSlidingTabStrip) findViewById(R.id.materialviewpager_pagerTitleStrip);
         toolbar = mViewPager.getToolbar();
         if (toolbar != null) {
             setSupportActionBar(toolbar);
@@ -117,19 +161,19 @@ public class MainActivity extends AppCompatActivity {
             public Fragment getItem(int position) {
                 switch (position % 6) {
                     case 0:
-                        return About_Fragment.newInstance();
+                        return About_Fragment.newInstance(MainActivity.this);
                     case 1:
                         return Online_fragment.newInstance();
                     case 2:
                         return Offline_fragment.newInstance();
                     case 3:
-                        return Sponsors.newInstance();
-                    case 4:
-                        return Contact_us_fragment.newInstance();
-                    case 5:
                         return Nethunt_Fragment.newInstance();
+                    case 4:
+                        return Sponsors.newInstance();
+                    case 5:
+                        return Contact_us_fragment.newInstance();
                     default:
-                        return Offline_fragment.newInstance();
+                        return Online_fragment.newInstance();
                 }
 
             }
@@ -150,11 +194,11 @@ public class MainActivity extends AppCompatActivity {
                     case 2:
                         return "OFFLINE";
                     case 3:
-                        return "SPONSORS";
-                    case 4:
-                        return "CONTACT US";
-                    case 5:
                         return "NET HUNT";
+                    case 4:
+                        return "SPONSORS";
+                    case 5:
+                        return "CONTACT US";
 
                 }
                 return "";
@@ -197,16 +241,13 @@ public class MainActivity extends AppCompatActivity {
 
 
         //Floating Action Buttons
-       // fab = (FloatingActionButton) findViewById(R.id.fab);
-
-        //for floating action button...
         fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setBackgroundTintList(ColorStateList.valueOf(Color
                 .parseColor("#03A9F4")));
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //check_login = sharedPreferences.getBoolean("key1", false);
+                //logout
                 if (Config.USERNAME!=null) {
                     dialog = new Dialog(MainActivity.this);
                     dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -217,7 +258,6 @@ public class MainActivity extends AppCompatActivity {
                 //for login
                 else {
 
-                    Toast.makeText(getApplication(), "Let's login first", Toast.LENGTH_SHORT).show();
                     dialog = new Dialog(MainActivity.this);
                     dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                     dialog.setContentView(R.layout.for_new_floating);
@@ -263,27 +303,39 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void youtube(View view) {
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/watch?v=_yXcoACi0kE"));
+        //Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/watch?v=_yXcoACi0kE"));
+        Intent intent = new Intent(Intent.ACTION_VIEW,Uri.parse("https://www.youtube.com/watch?v=3QBamv6Dm8A"));
         startActivity(intent);
     }
 
+    //to call server for registraion
     public void register_button(View view) {
         register register = new register();
         register.newInstance(dialog, MainActivity.this);
 
     }
 
+    //to call server for login
     public void login_button(View view) {
         user = (EditText) dialog.findViewById(R.id.editText_username);
         pass = (EditText) dialog.findViewById(R.id.editText_password);
         email = user.getText().toString();
         Password = pass.getText().toString();
-        login login = new login();
-        login.newInstance(email, Password, MainActivity.this, dialog);
+        if(TextUtils.isEmpty(email)||TextUtils.isEmpty(Password))
+        {
+            Config.showToast(context,"Required field(s) missing");
+        }
+        else
+        {
+            login login = new login();
+            login.newInstance(email, Password, MainActivity.this, dialog);
+        }
+
     }
 
+    //to set firstname on activity main after login
     public static void setname(String firstname) {
-       // Username = firstname;
+
 
             firstname_textview.setText("Hello, " + firstname);
             fab.setImageResource(R.mipmap.ic_lock_open_white);
@@ -298,19 +350,21 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+    //to remove firstname from activity after logout
     public static void removename(){
         firstname_textview.setText("");
         fab.setImageResource(R.mipmap.fingerprint_icon);
 
     }
 
+    //to open login dialog
     public void login_dialog(View view) {
         dialog.dismiss();
         //sharedPreferences = getSharedPreferences("Login", MODE_PRIVATE);
         check_login = sharedPreferences.getBoolean("key1", false);
         sharedprefrences_username = sharedPreferences.getString("Username", "");
         sharedprefrences_password =sharedPreferences.getString("Password","");
-        Toast.makeText(getApplication(), "Let's login first", Toast.LENGTH_SHORT).show();
         dialog = new Dialog(MainActivity.this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.log_in);
@@ -326,18 +380,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //to call server for logout
     public void logout(View view) {
 
-
-        Toast.makeText(getApplication(), "Successfully, Logged out", Toast.LENGTH_SHORT).show();
         logout logout = new logout();
-        logout.newInstance( MainActivity.this, dialog);
+        logout.newInstance(MainActivity.this, dialog);
 
-//        ed = sharedPreferences.edit();
-//        ed.putBoolean("key1", false);
-//        ed.putString("Username", "");
-//        ed.commit();
-        //dialog.dismiss();
+
 
     }
 
@@ -345,10 +394,11 @@ public class MainActivity extends AppCompatActivity {
         dialog.dismiss();
     }
 
+    //to call register dialog
     public void register_dialog(View view) {
         dialog.dismiss();
-        Toast.makeText(getApplication(), "Not registered, Register yourself", Toast.LENGTH_SHORT).show();
-        dialog = new Dialog(MainActivity.this, R.style.DialogAnimation);
+        dialog = new Dialog(MainActivity.this,R.style.ThemeDialogCustom);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.register);
         // dialog.getWindow().setFormat(PixelFormat.TRANSLUCENT);
         dialog.setTitle("register");
@@ -356,8 +406,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //to start nethunt
     public void start_nethunt(View view) {
-       // System.out.println("username" + Username);
+
         if (Config.USERNAME == null) {
             Toast.makeText(getApplication(), "You have to login first", Toast.LENGTH_SHORT).show();
             dialog = new Dialog(MainActivity.this);
@@ -367,7 +418,6 @@ public class MainActivity extends AppCompatActivity {
         } else {
             Intent intent = new Intent(this, Net_hunt.class);
             startActivity(intent);
-//            //intent.putExtra("username", Username);
         }
 
     }
@@ -377,6 +427,35 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void schedule(View view)
+    {
+        dialog = new Dialog(MainActivity.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.schedule);
+        dialog.show();
+    }
+    void notify(int date,int hour,int min)
+    {
+
+        int d=date,h=hour,mn=min;
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.DAY_OF_MONTH, d);
+        calendar.set(Calendar.MONTH, Calendar.SEPTEMBER);
+        calendar.set(Calendar.YEAR, 2016);
+
+        calendar.set(Calendar.HOUR_OF_DAY, h);
+        calendar.set(Calendar.MINUTE, min);
+        calendar.set(Calendar.SECOND, 0);
+
+        final int id=(int)System.currentTimeMillis();
+
+        Intent myIntent = new Intent(MainActivity.this, MyReceiver.class);
+        pendingIntent = PendingIntent.getBroadcast(MainActivity.this, id, myIntent, PendingIntent.FLAG_ONE_SHOT);
+
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+        alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
+
+    }
 
     @SuppressWarnings("NewApi")
     public static Bitmap blurRenderScript(Bitmap smallBitmap, int radius) {

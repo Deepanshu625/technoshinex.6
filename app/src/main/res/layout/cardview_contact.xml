@@ -6,7 +6,7 @@
     xmlns:card_view="http://schemas.android.com/tools"
     android:id="@+id/card_view_contact"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="300dp"
     android:layout_gravity="center"
     android:layout_margin="0dp"
     android:padding="0dp"
@@ -24,13 +24,15 @@
         android:gravity="center_horizontal"
         android:layout_marginTop="30dp"
         android:layout_marginLeft="40dp"
+        android:weightSum="6"
         >
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_weight="1">
             <ImageView
                 android:layout_height="25dp"
                 android:layout_width="25dp"
@@ -54,7 +56,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_weight="1">
             <ImageView
                 android:layout_height="25dp"
                 android:layout_width="25dp"
@@ -77,7 +80,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_weight="1">
             <ImageView
                 android:layout_height="25dp"
                 android:layout_width="25dp"
@@ -100,7 +104,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_weight="1">
             <ImageView
                 android:layout_height="25dp"
                 android:layout_width="25dp"
@@ -122,7 +127,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_weight="1">
             <ImageView
                 android:layout_height="25dp"
                 android:layout_width="25dp"
@@ -138,13 +144,14 @@
                 android:layout_marginBottom="20dp"
                 android:clickable="true"
                 android:gravity="center|bottom"
-                android:text="9834015103"
+                android:text="9007386263"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_weight="1">
             <ImageView
                 android:layout_height="25dp"
                 android:layout_width="25dp"

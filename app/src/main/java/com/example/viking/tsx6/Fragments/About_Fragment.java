@@ -1,7 +1,14 @@
 package com.example.viking.tsx6.Fragments;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -21,6 +28,7 @@ import com.example.viking.tsx6.About_Adapter;
 import com.example.viking.tsx6.Contact_Adapter;
 import com.example.viking.tsx6.MainActivity;
 import com.example.viking.tsx6.R;
+import com.example.viking.tsx6.RecyclerItemClickListener;
 import com.example.viking.tsx6.Splash_screen;
 import com.github.florent37.materialviewpager.MaterialViewPager;
 import com.github.florent37.materialviewpager.MaterialViewPagerHelper;
@@ -30,6 +38,15 @@ import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerFragment;
 import com.google.android.youtube.player.YouTubePlayerSupportFragment;
 import com.google.android.youtube.player.YouTubePlayerView;
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 
 /**
@@ -41,9 +58,14 @@ public class About_Fragment extends Fragment  {
     RecyclerView mRecyclerView;
     RecyclerView.Adapter mAdapter;
     TextView textView;
+    public Context context;
+    static Context context_1;
 
 
-    public static About_Fragment newInstance() {
+
+    public static About_Fragment newInstance(Context context) {
+        context_1=context;
+
         return new About_Fragment();
     }
 
@@ -55,15 +77,21 @@ public class About_Fragment extends Fragment  {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        context = getContext().getApplicationContext();
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(layoutManager);
         mRecyclerView.setHasFixedSize(true);
-        mAdapter = new RecyclerViewMaterialAdapter(new About_Adapter());
+        mAdapter = new RecyclerViewMaterialAdapter(new About_Adapter(context_1));
         mRecyclerView.setAdapter(mAdapter);
         MaterialViewPagerHelper.registerRecyclerView(getActivity(), mRecyclerView);
-       // textView = (TextView) view.findViewById(R.id.about);
-       // textView.setTypeface(Splash_screen.typeface_1);
+        textView = (TextView) view.findViewById(R.id.downloadSchedule);
+
+//
+
+        
+
 
     }
 

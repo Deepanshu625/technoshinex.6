@@ -33,12 +33,12 @@
             app:viewpager_hideToolbarAndTitle="false"
             app:viewpager_logo="@layout/header_logo"
             app:viewpager_logoMarginTop="70dp"
-            app:viewpager_pagerTitleStrip="@layout/my_tab"
+           app:viewpager_pagerTitleStrip="@layout/my_tab"
             app:viewpager_parallaxHeaderFactor="1.5"
             app:viewpager_transparentToolbar="false"
 
             />
-
+        <!--app:viewpager_pagerTitleStrip="@layout/my_tab"-->
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab"

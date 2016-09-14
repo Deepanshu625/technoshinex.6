@@ -39,9 +39,7 @@ public class Splash_screen extends Activity implements Animation.AnimationListen
         typeface_1=Typeface.createFromAsset(getAssets(),"fonts/ChallengeContour.ttf");
         typeface_2=Typeface.createFromAsset(getAssets(),"fonts/PlayfairDisplay.ttf");
         typeface_3=Typeface.createFromAsset(getAssets(),"fonts/Montserrat-Regular.ttf");
-        //textView = (TextView)findViewById(R.id.splash_text);
         imageView_text = (ImageView)findViewById(R.id.splash_text);
-        //textView.setTypeface(typeface);
 
         ImageView imageView = (ImageView) findViewById(R.id.splash_image);
 
@@ -72,7 +70,6 @@ public class Splash_screen extends Activity implements Animation.AnimationListen
         // Take any action after completing the animation
         if(flag==1)
         {
-            //imageView_text.setImageBitmap(decodeSampledBitmap(getResources(),R.id.splash_text, 200, 100));
             imageView_text.setVisibility(View.VISIBLE);
             imageView_text.startAnimation(ani);
             flag=0;

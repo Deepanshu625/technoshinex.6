@@ -87,12 +87,7 @@ public class Offline_Adapter extends RecyclerView.Adapter<Offline_Adapter.ViewHo
                 textView.setTypeface(MainActivity.typeface_3);
 
                 imageView.setImageBitmap(decodeSampledBitmap(context.getResources(), poster[position], 200, 200));
-//                BitmapDrawable drawable = (BitmapDrawable) imageView.getDrawable();
-//                Bitmap bitmap = drawable.getBitmap();
-//                Bitmap blurred = MainActivity.blurRenderScript(bitmap, 25);//second parameter is radius
-//                imageView.setImageBitmap(blurred);
 
-                //dialog.getWindow().setBackgroundDrawableResource(myImageList[position - 1]);
                 ImageView imageView_background = (ImageView) dialog.findViewById(R.id.background_dialog);
                 imageView_background.setImageBitmap(decodeSampledBitmap(context.getResources(), poster[position], 200, 100));
                 dialog.getWindow().setFormat(PixelFormat.TRANSLUCENT);

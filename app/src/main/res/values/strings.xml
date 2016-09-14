@@ -28,13 +28,12 @@
     <!-- About us-->
 
     <string name="about">
-        This is the annual TechFest of Computer Applications Department, National Institute of Technology, Durgapur, is a melting pot of the technically inclined students from colleges all over Eastern India.
+        This is the only TechFest by the post-graduates of CA Dept, National Institute of Technology, Durgapur, is a melting pot of the technically inclined students from colleges all over Eastern India.
         Not only Eastern India but other premiere institutes of India and abroad.
         The three-day fiesta consists of events spanning every possible field, ranging from coding events to challenge the hardcore coders, to providing a platform for all to showcase their hidden talents.
-        There are quizzes on diverse topics, and the technical events encourage the enthusiasts to apply their theoretical knowledge in the real world. With 14 events and participation from over 20 colleges all over India,
-        Technoshine leads the light of instilling a culture of science, technology and innovation among the youth of the nation.
-        This tech-fest is organised by Center for Application Development(CAD) an indigenous students activity club founded in the year 2011.
-        Apart from organising this fest this club is involved in other technical activities like seminars,Techtalk classes,orientation camps,workshops throughout the year.
+        From quizzes on diverse topics including technologies, general knowledge and computer applications to painting on your friend’s body and performing your heart out for the immensely cheerful crowd – it’s a fest that’ll pop up your adrenaline rush.
+        There’s room for all- the coder, the dancer, the painter, the shutterbug or the super-nerd.
+        With such innumerous events and participation from colleges all over India, Technoshine leads the light of instilling a culture of science, technology and innovation among the youth of the nation.
 
         </string>
 
@@ -42,35 +41,36 @@
    <string name="Just_click">\n\n\t\t\t\t\t\t\tFor participating you need to register on  www.cadnitd.co.in\n\n
                 Can your facebook friends help you win a contest? Show us your popularity by attaining the maximum numbers of likes on your picture,
                 or by depicting the best thought on the theme provided. Click!! Click!! \n\n
-           1.   You need to submit between 17 sept 2016 and 23 sep 2016\n\n
-           2.   The Submission must be a digital photo clicked by yourself\n\n
-           3.   The Submission must be entrant\'s original creation and owned one hundred percent (100%) by the entrant\n\n
-           4.   The Submission should not have been submitted previously in a promotion of any kind or exhibited or displayed publicly through any means\n\n
-           5.   The Submission must demonstrate one of the following contest themes: Open, Landscape\n\n
-           6.   Picture will be uploaded on our facebook page www.facebook.com/technoshinex.6, you have to get likes on your picture on our facebook page as much as possible before 22 sep 2016\n\n
-           7.   You have to like Technoshine X.6 page and then your likes will be consider\n\n
-           8.   Winners will be decided with weightage of 50% from number of Likes received on your photo on our FB page and weightage of 50% will be on our judges decision, respectively\n\n
+           1.   You need to submit your photograph between 19th september, 2016 and 24th september, 2016.\n\n
+           2.   The Submission must be a digital photo clicked by yourself.\n\n
+           3.   The Submission must be entrant\'s original creation and owned one hundred percent (100%) by the entrant.\n\n
+           4.   The Submission should not have been submitted previously in a promotion of any kind or exhibited or displayed publicly through any means.\n\n
+           5.   The Submission must demonstrate one of the following contest themes: Street Portrait, Macro Focus (small things images).\n\n
+           6.   Picture will be uploaded on our facebook page www.facebook.com/technoshinex.6, you have to get likes on your picture on our facebook page as much as possible before 24th september 2016.\n\n
+           7.   You have to like Technoshine X.6 page and then your likes will be consider.\n\n
+           8.   Winners will be decided with weightage of 50% from number of Likes received on your photo on our FB page and weightage of 50% will be on our judges decision, respectively.\n\n
    </string>
 
 
     <string name="net_hunt">\n\n\t\t\t\t\t\t\tKeep Calm And Google\n\n
-                                 Is your Google-fu strong enough to win you a prize? Surf the internet and bring us the correct answer for the given question.
-                                 Only a correct answer will help you clear the levels. Aim? To reach the highest level possible!\n\n
-                                \t\t\t\t\t\t\tAwesome Cash Prizes to Win\n\n
-                                \t\t\t\t\t\t\tPlay Nethunt @ www.cadnitd.co.in \n
+                        Is your Google-fu strong enough to win you a prize? Surf the internet and bring us the correct answer for the given question.
+                                 Only a correct answer will help you clear the levels. Aim to reach the highest level possible!\n\n\n
+                                This event is going to start from 19th september,2016 to 23rd september,2016 till Midnight\n\n
+                                \t\t\t\t\tAwesome Cash Prizes to Win.\n\n
+                                \t\t\t\t\tPlay Nethunt in TechnoshineX.6 android app or @ www.cadnitd.co.in \n
 
         </string>
-    <string name="Inspire_India">\n\n\t\t\t\t\t\t\tWrite to inspire not to impress\n\n
+    <string name="Inspire_India">\n\n\t\t\t\t\t\t\tIf keyboards could talk, words that stung.\n\n
                     It’s time for you to inspire the folks by writing your hearts out.
                     Show us your creativity, write something out of the box on any of the topics provided, and lead among the pack of participants.
                     Imagine, Implement and Inspire!!\n\n
                     1.  Participants are supposed to register at www.cadnitd.co.in. Entries from unregistered participants will not be considered for evaluation.\n\n
-                    2.  Participants have to send their write-ups as .doc/.docx files to inspireindiats@gmail.com before 23rd september 11 PM.\n\n
+                    2.  Participants have to send their write-ups as .doc/.docx files to inspireindiats@gmail.com between 19th september,2016 to 23rd september, 2016 till 12 PM.\n\n
                     3.  Participants must choose  any one of the following:\n
-                    \t\t\t\tA short story based on theme- RURAL INDIAN YOUTH  (Max Word Count- 400)\n
-                    \t\t\t\tAn article on INDIA OF MY DREAMS (Max Word Count- 500)\n
-                    \t\t\t\tA poem based on the theme- “FREEDOM” AFTER 6 DECADES OF INDEPENDENCE\n
-                    \t\t\t\tAn article on PROUD? TO BE AN INDIAN (Max Word Count-500)\n
+                    \t\t\t\tA story on "Words that stung"  (Max Word Count- 500)\n
+                    \t\t\t\tA poem on "A magic spell" (Max Word Count- 500)\n
+                    \t\t\t\tAn article on "Smartphones or Smartbrains?"\n
+                    \t\t\t\tAn article on "India's presence on the global landscape" (Max Word Count-500)\n
                     Note: Please give apt titles for  the poem and short story \n\n
                     4.  Each of the entries should be an original creation of the participant.\n
         </string>
@@ -78,31 +78,31 @@
                     A coding competition not only for the geeks but also for the novice.
                     Code, successfully compile and pass all the test-cases to retain your position at the top of the leader-board.
                     So polish up your coding skills to win cash prizes.
-                    \n\n1. Go to Codechef login and regsiter for the contest \"CODEWAR\"\n\n
-                    2. The contest will be a 5 hour coding marathon \n\n
-                    3. Participation will be Individual\n\n
-                    4. There will be five questions of different difficulties.\n\n
-                    6. winner will be selected according to the leaderboard.\n
+                    \n\n1. Go to Codechef login and regsiter for the contest \"CODEWAR\".\n\n
+                    2. The contest will be from 20th september,2016 8:00 pm onwards to 22nd september,2016 till 8:00 pm. \n\n
+                    3. Participation will be Individual.\n\n
+                    4. There will be eight questions of different difficulties.\n\n
+                    5. Winner will be selected according to the leaderboard.\n
                     \tSo come and win the epic battle of coding.\n\n
     </string>
-    <string name="just_tagline">Let your camera do the talking</string>
-    <string name="code_tagline">Code your way to Victory</string>
+    <string name="just_tagline">Shout-out to the shutterbugs!</string>
+    <string name="code_tagline">while(!(code==perfect()))</string>
     <string name="net_tagline">Keep calm and google</string>
     <string name="inspire_tagline">Write to inspire not to impress</string>
 
     <!-- For offline events. -->
     <string name="Tatto">\n\n
-        \t\t\t\t\t\t\tCome participate and bring out the artist in you.\n\n
+                    Come participate and bring out the artist in you.\n\n
                     Do you want to express your feelings by painting the face of one of your
                     lovable friend? If yes, then this is the exact platform for you to express how you think about certain
                     things and also your general ideas about life and everything which is encountered. So participate,
                     emblazon your talent and win this sparkling title of tattoo maker.\n\n
                     1) We will provide you with water colors and paint brushes (2 max for every participant). But if you wish to bring your own brushes,glitter or other accessories feel free to do so. Sky is the limit.\n
                     2) The CATEGORIES are:\n
-                    \t\t\t\t\ta) Nature\n
-                    \t\t\t\t\tb) Cartoons or Anime\n
-                    \t\t\t\t\tc) Tribal\n
-                    \t\t\t\t\td) Geometric\n\n
+                    \t\t\t\t\ta)  Your Favorite Manga or Anime Character. \n
+                    \t\t\t\t\tb)  Cartoon Network Characters Revisited. \n
+                    \t\t\t\t\tc) Meme Faces. \n
+                    \t\t\t\t\td) Cartoon Graffitis.\n\n
                     3) Participant will have to bring a willing accomplice upon whom they will paint.\n\n
                     4) They will have to explain their creation to the judges so their tattoo should be meaningful and should belong to any one of the categories mentioned above.\n\n
                     5) Time : 1hour.\n\n
@@ -115,21 +115,21 @@
                     talent, ability and skills by fighting in war of minds . Now stir yourself, spike your knowledge and
                     run your brains to conquest this marathon of mind.\n\n
                     Talent hits a target no one else can hit, Genius hits a target no one else can see. So guys time to shake your brains up!!! Get the best out of yourself. As The Quiz always floats slightly above the ground!!! And only you can do it. Here you go \n
-                    \t\t\tRules:\n\n
-                    1) The questions for quiz are based on general knowledge, current affairs\n\n
+                    Rules:\n\n
+                    1) The questions for quiz are based on general knowledge, current affairs.\n\n
                     2) There will be only 1 round, which is paper based.\n\n
                     3) 30 questions of 3 marks each. There will be no negative marking.\n\n
                     4) Two members in each team.\n\n
-                    5) There will be strict prohibition on any source like internet for help
+                    5) There will be strict prohibition on any source like internet for help.
         </string>
-    <string name="couter">\n\nFire in the hole\n\n
+    <string name="counter">\n\nFire in the hole\n\n
                     Are you interested in Gaming? Yes ?,then this is the appurtenant opportunity
                     for you to concur in this first person shooter game. Each team attempts to complete their mission
                     objective and/or eliminate the opposing team. So gear up guys for this amazing event, cash prizes
                     are waiting for you.\n\n
-        Round:\tOne 1 minute 45 second cycle on a map\n\n
-                    Match:\t\t\tFirst team to win 7 total rounds, or the single overtime round\n\n
-                    Overtime:\t\t\tIn the case of a 6-6 score at the end of regulation play, 3 overtime rounds will be played. The start money for each team will be set at $8,000 per player for overtime.\n\n\n
+                    Round:\t\t\t 1 minute 45 seconds cycle on a map.\n\n
+                    Match:\t\t\tFirst team to win 7 total rounds, or the single overtime round.\n\n
+                    Overtime:\t\t\tIn the case of a 6-6 score at the end of regulation play, 3 overtime rounds will be played. The start money for each team will be set at $10000 per player for overtime.\n\n\n
                     Game Format:\n\n
                     Competition Method:\t5 vs. 5\n\n
                     Players:\t\t\t10 total (5 on each team)\n\n
@@ -141,7 +141,7 @@
                     Freeze time:\t\t\t5 seconds\n\n
                     C4 Timer:\t\t\t35 seconds\n\n
                     Map Pool:\n
-                    \t\t\t\t\t• de_dust2, de_inferno, de_nuke, de_train\n
+                    \t\t\t\t\t• de_dust,de_dust2, de_inferno, de_nuke, de_train\n
                     \n
                     Side Selection:\n
                     \t\t\t\t\t• By knife round / coin toss, at admin discretion\n
@@ -153,7 +153,7 @@
                     \t\t\t\t\t•Non-standard game settings or third party applications that affect game play are not permitted.\n
                     \t\t\t\t\t•Players are restricted from opening the console.\n
     </string>
-    <string name="treasure">\n\nNot all treasure‘s silver and gold, mate
+    <string name="treasure">\n\nNot all gold glitters
                             \n\nBring out the Bond in you. Solve the riddles at each stage as fast as you can, or opt for some alternative tasks.
                             Knowledge of the campus, and shortcuts routes from one location to another can help you reach the destinations faster.
                             Be the team covering the maximum number of destination points within the stipulated time period to be the winners!
@@ -168,8 +168,8 @@
                     Rules:\n
                     This events for specially for who loves the gadget’s..   The whole event based on latest Gadget ‘s.\n
                     1.\tThere will be team of  two  members.\n\n
-                    2.\tWhole event completed in two round. \n\n
-                    3.\tThe first  round  is Paper based .. there will be 20 question based on latest gadgets . time limit  20 minutes..\n\n
+                    2.\tWhole event will be completed in two rounds. \n\n
+                    3.\tThe first  round  is Paper based. there will be 20 question based on latest gadgets. Time limit  20 minutes.\n\n
                     4.\tSecond round is  App based ..  consisting of 20 questions time limit 20 minutes..\n
         </string>
     <string name="poy">\n\n\t\t\t\t\t\t\tCome Steal the Show\n\n
@@ -190,8 +190,8 @@
                     1. It is a team event, each team has 2 members.\n\n
                     2. It will consist of 3 rounds ,round 1 is paper based ,selected team from round 1 goes to round 2, which is app based and shortlisted team will face the third round which is purely based on coding.\n\n
                     3. Round 1 and 2 will be of 30 minutes each and consist of multiple choice question.\n\n
-                    4. Round 3 is the coding  round which is of 2 hours.\n\n
-                    5. For round 3 participants should have to bring their own laptops.\n\n
+                    4. Round 3 is the coding  round.\n\n
+                    5. For round 3 participants should bring their own laptops.\n\n
     </string>
     <string name="total">\n\n
                     \t\t\t\t\t\t\tWho let The Chaos out?\n\n
@@ -199,8 +199,8 @@
                     and start brainstorming with your team mates to solve the different aptitude, reasoning and system-based problems to be the ultimate winners.
                     \n\nRules:\n
                     1.\tThere will be team of  two  members.\n\n
-                    2.\tWhole event completed in two round\n\n
-                    3.\t1st round is App based… there will be 30 question based on (Programming, GK , Logical Reasoning ,Computer tricky questions) . Time limit   30 minutes..\n\n
+                    2.\tWhole event needs to be completed within two rounds.\n\n
+                    3.\t1st round is App based… there will be 30 question based on (Programming, GK , Logical Reasoning ,Computer tricky questions) . Time limit   30 minutes.\n\n
                     4.\tSecond round is surprise.\n\n
     </string>
 
@@ -208,7 +208,7 @@
     <string name="tattoo_tagline">Ink up your Imagination</string>
     <string name="brain_tagline">Ace the Brain Race</string>
     <string name="counter_tagline">Fire in the Hole</string>
-    <string name="treasure_tagline">Not all treasure‘s silver and gold, mate</string>
+    <string name="treasure_tagline"> Not all gold glitters</string>
     <string name="gadget_tagline">Unleash the GEEKZMO in you</string>
     <string name="poy_tagline">Come Steal the Show</string>
     <!--<string name="socket_tagline">Crusading the Network Arena</string>-->
@@ -218,10 +218,10 @@
 
 
     <!-- For nethunt-->
-    <string name="text1">1. All Characters should be in small letters</string>
-    <string name="text2">2. Numbers should be enter in alphabetical form</string>
-    <string name="text3">3. There should be no space in words</string>
-    <string name="text4">4. There is no time limit for any question</string>
+    <string name="text1">1. \tAll Characters should be in small letters.</string>
+    <string name="text2">2. \tNumbers should be enter in numerical form.</string>
+    <string name="text3">3. \tThere should be no space in words.</string>
+    <string name="text4">4. \tThere is no time limit for any question.</string>
 
 
 </resources>

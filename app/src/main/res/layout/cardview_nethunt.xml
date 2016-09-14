@@ -28,25 +28,83 @@
             android:layout_width="match_parent"
             android:src="@drawable/net"
             android:scaleType="centerCrop"
-            android:alpha="0.5"
+            android:alpha="0.3"
             android:id="@+id/nethunt_img"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:clickable="true"
-            android:text="Wanna Play?"
+            android:text="Instructions"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
             android:textSize="40dp"
-            android:layout_centerVertical="true"
+            android:id="@+id/instruction_text"
+            android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:background="@android:color/transparent"
+            android:paddingTop="30dp"
+            android:layout_weight="5"
+            android:paddingBottom="30dp"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            android:gravity="left"
+            android:id="@+id/linearLayout2"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:background="@android:color/transparent"
+                android:textColor="@android:color/black"
+                android:text="@string/text1"
+                android:textSize="17dp"
+                android:gravity="left"
+                android:id="@+id/instruction_1"
+                />
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textColor="@android:color/black"
+                android:background="@android:color/transparent"
+                android:text="@string/text2"
+                android:textSize="17dp"
+                android:id="@+id/instruction_2"
+                android:gravity="left"
+                />
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:background="@android:color/transparent"
+                android:text="@string/text3"
+                android:textColor="@android:color/black"
+                android:textSize="17dp"
+                android:id="@+id/instruction_3"
+                android:gravity="left"
+                />
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:background="@android:color/transparent"
+                android:text="@string/text4"
+                android:textSize="17dp"
+                android:id="@+id/instruction_4"
+                android:gravity="left"
+                android:textColor="@android:color/black" />
+        </LinearLayout>
 
         <Button
             android:layout_width="wrap_content"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/black"
+            android:textColor="#000000"
             android:text="Let's Play"
             android:id="@+id/start_nethunt"
             android:onClick="start_nethunt"

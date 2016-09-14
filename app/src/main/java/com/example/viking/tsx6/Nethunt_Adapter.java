@@ -21,13 +21,19 @@ import com.google.android.youtube.player.YouTubePlayerView;
 public class Nethunt_Adapter extends RecyclerView.Adapter<Nethunt_Adapter.ViewHolder> {
     private int[] imglist;
     Context context;
+
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public ImageView imageView;
-
+        public TextView textView_Instruction,instruction_1,instruction_2,instruction_3,instruction_4;
 
         public ViewHolder(View itmView) {
             super(itmView);
             imageView = (ImageView) itemView.findViewById(R.id.nethunt_img);
+            textView_Instruction= (TextView) itemView.findViewById(R.id.instruction_text);
+            instruction_1= (TextView) itemView.findViewById(R.id.instruction_1);
+            instruction_2= (TextView) itemView.findViewById(R.id.instruction_2);
+            instruction_3= (TextView) itemView.findViewById(R.id.instruction_3);
+            instruction_4= (TextView) itemView.findViewById(R.id.instruction_4);
         }
 
     }
@@ -38,7 +44,16 @@ public class Nethunt_Adapter extends RecyclerView.Adapter<Nethunt_Adapter.ViewHo
     public void onBindViewHolder(Nethunt_Adapter.ViewHolder viewHolder, int position) {
         // Get the data model based on position
         ImageView im=viewHolder.imageView;
-
+        TextView tx2 = viewHolder.textView_Instruction;
+        TextView instruction_1 = viewHolder.instruction_1;
+        TextView instruction_2 = viewHolder.instruction_2;
+        TextView instruction_3 = viewHolder.instruction_3;
+        TextView instruction_4 = viewHolder.instruction_4;
+        tx2.setTypeface(MainActivity.typeface);
+        instruction_1.setTypeface(MainActivity.typeface_3);
+        instruction_2.setTypeface(MainActivity.typeface_3);
+        instruction_3.setTypeface(MainActivity.typeface_3);
+        instruction_4.setTypeface(MainActivity.typeface_3);
         // Set item views based on the data model
         im.setImageResource(imglist[position]);
         im.setImageBitmap(decodeSampledBitmap(context.getResources(), imglist[position], 200, 100));
